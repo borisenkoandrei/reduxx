@@ -1,0 +1,12 @@
+.add-new-car{
+    width: 300px;
+    padding: 5px;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.add-new-car_label{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
