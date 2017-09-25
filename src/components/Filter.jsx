@@ -2,10 +2,10 @@ import React from 'react';
 
 function Filter(props){
     return(
-        <div>
-            <button>all</button>
-            <button>complit</button>
-            <button>in work</button>
+        <div className='filter-block'>
+            <button className='filter-block_button'>all</button>
+            <button className='filter-block_button'>complit</button>
+            <button className='filter-block_button'>in work</button>
         </div>
     );
 }

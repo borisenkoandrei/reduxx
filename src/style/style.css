@@ -1,0 +1,35 @@
+.appWrapper{
+    display: flex;
+}
+.active-car{
+    width: 300px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid;
+}
+
+.work-block{
+    width: 100%;
+}
+
+.filter-block{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-block_button{
+    margin-right: 30px;
+}
+
+.tasks-block{
+    width: 100%;
+}
+
+.tasks-block_table{
+    width: 100%;
+}
+
+.row-name{
+    width: 110px;
+}

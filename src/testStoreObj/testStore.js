@@ -1,5 +1,6 @@
 const testStore = {
     activeCarId: 123,
+    filter:"ALL",
     add: false,
     cars:[
         {

@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import ActiveCarBlock from './containers/activeCarBlock'
-import Filter from './components/Filter';
-import Tasks from './components/Tasks';
+import React from 'react';
+import './style/style.css'
+import ActiveCarBlock from './containers/activeCarBlock';
+import TableWithFilter from './containers/TableWithFilter';
 
 function App(props){
   return(
-    <div>
+    <div className="appWrapper">
       <ActiveCarBlock/>
-      <Filter />
-      <Tasks />
+      <TableWithFilter />
     </div>  
   )
 }

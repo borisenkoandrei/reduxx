@@ -5,25 +5,40 @@ import Activecar from '../components/ActiveCar';
 import AddNewCar from '../components/AddNewCar';
 import ChangeActiveCar from '../components/ChangeActiveCar';
 import AddNewCarButton from '../components/AddNewCarButton';
-import { startAddNewCar, changeActiveCar } from '../actions/actions';
+import { startAddNewCar, changeActiveCar, addNewCar } from '../actions/actions';
 
 function ActiveCarBlock(props){
     return(
-        <div>
-            <Activecar add={props.add} />
-            <AddNewCar add={props.add} />
+        <div className="active-car">
+            <Activecar add={props.add} activeCarData={props.activeCarData} />
+            <AddNewCar add={props.add} addNewCar ={props.addNewCar} openAddWindow={props.openAddWindow} changeActiveCar = {props.changeActiveCar} />
             <ChangeActiveCar changeActiveCar = {props.changeActiveCar}  cars={props.cars} activeCar = {props.activeCar}/>
             <AddNewCarButton openAddWindow={props.openAddWindow}/>
         </div>
     )
 }
 
-const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps);
+function getActiveCarData (id, cars){
+  
+  let result;
+  
+  cars.forEach(function(car){
+    if (car.id === +id){
+      result = car;
+    }
+  })
+
+  return result;
+};
+
+const mapStateToProps = (state) => {
   return {
+    state:state,
     activeCar:state.activeCarId,
+    activeCarData: getActiveCarData(state.activeCarId, state.cars),
     add: state.add,
-    cars: state.cars, 
+    cars: state.cars,
+   
   }
 }
 
@@ -32,8 +47,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     openAddWindow: () => {
       dispatch(startAddNewCar());
     },
-    changeActiveCar: () => {
-        dispatch(changeActiveCar());
+    changeActiveCar: (id) => {
+        dispatch(changeActiveCar(id));
+    },
+    addNewCar: (newCar) =>{
+      dispatch(addNewCar(newCar))
     }
   }
 }

@@ -5,32 +5,36 @@ function ActiveCar(props){
         return null;
     }
 
+    let car = props.activeCarData;
+
     return (
         <table>
-            <tr>
-                <td>Марка</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Модель</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Год</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Объем двигалеля</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Мощьность двигателя</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>VIN</td>
-                <td></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td className='row-name'>Марка</td>
+                    <td>{car.brand}</td>
+                </tr>
+                <tr>
+                    <td className='row-name'>Модель</td>
+                    <td>{car.model}</td>
+                </tr>
+                <tr>
+                    <td className='row-name'>Год</td>
+                    <td>{car.year}</td>
+                </tr>
+                <tr>
+                    <td className='row-name'>Объем двигалеля</td>
+                    <td>{car.engineCapacity}</td>
+                </tr>
+                <tr>
+                    <td className='row-name'>Мощьность двигателя</td>
+                    <td>{car.hp}</td>
+                </tr>
+                <tr>
+                    <td className='row-name'>VIN</td>
+                    <td>{car.vin}</td>
+                </tr>
+            </tbody>
         </table>
     )    
 }

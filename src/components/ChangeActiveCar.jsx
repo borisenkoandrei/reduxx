@@ -6,8 +6,8 @@ function ChangeActiveCar(props){
       
 
     return (
-        <select onChange={props.changeActiveCar()} value={props.activecar}>
-            {cars.map((car) => <option value={car.model} id={car.id}>{car.model}</option>)}
+        <select onChange={(e) => {props.changeActiveCar(e.target.value)}} value={props.activecar}>
+            {cars.map((car, index) => <option key={index} value={car.id}>{car.model}</option>)}
         </select>
     )
 }
