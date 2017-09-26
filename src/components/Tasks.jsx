@@ -2,7 +2,8 @@ import React from 'react';
 import Task from './Task';
 
 
-function Tasks(props){
+function Tasks({tasks}){
+    console.log(tasks)
     return(
         <div className='tasks-block'>        
             <table className='tasks-block_table'>
@@ -16,12 +17,7 @@ function Tasks(props){
                     </tr>
                 </thead>
                 <tbody>
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
+                    {tasks.map(function(task){return(<Task task={task} />) })}
                 </tbody>
             </table>
         </div>

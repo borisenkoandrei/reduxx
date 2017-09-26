@@ -16,7 +16,7 @@ function TableWithFilter(props){
 function getActiveCarTasks (id, cars){
     let result;
     cars.forEach(function(car){
-        if(car.id === id){
+        if(car.id === +id){
             result= car.workItem;
         }
     })

@@ -1,13 +1,17 @@
 import React from 'react';
+import Accessories from '../components/Accessories';
 
-function Task(props) {
+function Task({ task }) {
+    console.log(task)
+    let {workType, cost, accessories, currentDate, pastDate } = task;
+
     return(
         <tr>
-            <td>Вид работы</td>
-            <td>Стоимость</td>
-            <td>Комплектующие</td>
-            <td>Запланированная дата</td>
-            <td>Дата последней работы</td>
+            <td>{workType}</td>
+            <td>{cost}</td>
+            <td><Accessories accessories={accessories} /></td>
+            <td>{currentDate}</td>
+            <td>{pastDate}</td>
         </tr>
     )
 }

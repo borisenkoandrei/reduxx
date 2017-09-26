@@ -1,4 +1,4 @@
-import {ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD} from '../const/const';
+import {ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD, CHECK_ACCESSORIES} from '../const/const';
 
 function addNewCar(carObj){
     return {
@@ -20,6 +20,15 @@ function startAddNewCar(){
     }   
 };
 
+function checkAccessories(id, finishStatus){
+    return {
+        type: CHECK_ACCESSORIES,
+        id,
+        finishStatus,
+    }
 
-export { addNewCar, changeActiveCar, startAddNewCar};
+}
+
+
+export { addNewCar, changeActiveCar, startAddNewCar, checkAccessories};
 
