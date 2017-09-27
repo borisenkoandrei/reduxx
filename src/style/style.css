@@ -33,3 +33,7 @@
 .row-name{
     width: 110px;
 }
+
+.finished{
+    text-decoration: line-through;    
+}

@@ -1,4 +1,4 @@
-import {ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD, CHECK_ACCESSORIES} from '../const/const';
+import {ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD, TOGGLE_ACCESSORIES, CHANGE_FILTER, ADD_NEW_TASK} from '../const/const';
 
 function addNewCar(carObj){
     return {
@@ -20,15 +20,29 @@ function startAddNewCar(){
     }   
 };
 
-function checkAccessories(id, finishStatus){
+function toggleAccessories(id){
     return {
-        type: CHECK_ACCESSORIES,
+        type: TOGGLE_ACCESSORIES,
         id,
-        finishStatus,
     }
 
 }
 
+function changeFilter(filter){
+    return{
+        type: CHANGE_FILTER,
+        filter,
+    }
 
-export { addNewCar, changeActiveCar, startAddNewCar, checkAccessories};
+}
+
+function addNewTask(task){
+    return {
+        type: ADD_NEW_TASK,
+        task,
+    }
+}
+
+
+export { addNewCar, changeActiveCar, startAddNewCar, toggleAccessories, changeFilter, addNewTask};
 

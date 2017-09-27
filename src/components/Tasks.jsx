@@ -2,8 +2,20 @@ import React from 'react';
 import Task from './Task';
 
 
-function Tasks({tasks}){
-    console.log(tasks)
+function Tasks({tasks, onToggle, filter}){
+    function filterTasks(tasks, filter){
+        switch (filter){
+            case "ALL":
+                return tasks;
+            case "CCOMPLITED":
+                return tasks.filter((task) => task.complited)
+            case "INWORK":
+                return tasks.filter((task) => !task.complited)
+            default:
+                return tasks
+        }
+    }
+    
     return(
         <div className='tasks-block'>        
             <table className='tasks-block_table'>
@@ -17,7 +29,7 @@ function Tasks({tasks}){
                     </tr>
                 </thead>
                 <tbody>
-                    {tasks.map(function(task){return(<Task task={task} />) })}
+                    {filterTasks(tasks, filter).map(function(task, index){return(<Task key={index} onToggle={onToggle} task={task} />) })}
                 </tbody>
             </table>
         </div>
