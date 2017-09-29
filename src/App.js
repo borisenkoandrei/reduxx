@@ -2,13 +2,17 @@ import React from 'react';
 import './style/style.css'
 import ActiveCarBlock from './containers/activeCarBlock';
 import TableWithFilter from './containers/TableWithFilter';
+import AddNewTask from './components/addNewTask'
 
 function App(props){
   return(
-    <div className="appWrapper">
-      <ActiveCarBlock/>
-      <TableWithFilter />
-    </div>  
+    <div>
+      <div className="appWrapper">
+        <ActiveCarBlock/>
+        <TableWithFilter />
+      </div>  
+      <AddNewTask />
+    </div>
   )
 }
 

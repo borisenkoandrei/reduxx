@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-function AddNewTaskButton(){
+function AddNewTaskButton(props){
     return(
-        
+        <button className="add-new-task-button" onClick={props.Click}>Добавить</button>
     )
 }
 
