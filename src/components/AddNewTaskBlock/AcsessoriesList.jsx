@@ -1,12 +1,12 @@
 import React from 'react';
 import Item from './AcsessoriesItem'
 
-function AcsessoriesList({acsessories}){
+function AcsessoriesList({acsessories, deleate}){
     return(
         <ul>
             {acsessories.length > 0?acsessories.map(function(item){
                 return(
-                    <Item id={item.id} key={item.id} name={item.name} amount={item.amount} />
+                    <Item deleate={deleate} id={item.id} key={item.id} name={item.name} amount={item.amount}/>
                 )
             }):<li>Пока ничего нет</li>
             }

@@ -17,6 +17,7 @@ class AddAcsessories extends React.Component{
         this.changeAmount = this.changeAmount.bind(this);
         this.changeName = this.changeName.bind(this);
         this.addAcsessories = this.addAcsessories.bind(this);
+        this.deleateAcsessories = this.deleateAcsessories.bind(this);
     }
 
     addAcsessories(event){
@@ -26,12 +27,13 @@ class AddAcsessories extends React.Component{
             let newAcsessories = {
                 name: this.state.acsessoriesName,
                 amount: this.state.acsessoriesAmount,
-                id: ++this.state.id
+                id: ++this.state.id,
+                finished: false,
             }
 
             this.setState({acsessories:[...this.state.acsessories, newAcsessories]})
 
-            console.log()
+            console.log(this.state)
          }
     }
 
@@ -43,14 +45,23 @@ class AddAcsessories extends React.Component{
         this.setState({acsessoriesAmount: amount});
     }
 
+    deleateAcsessories(id){
+        let acsessories = this.state.acsessories;
+        let currentid;
+        acsessories.forEach(function(item, index){
+            if(item.id === +id){
+                currentid = index;
+            }
+        })
+        acsessories.splice(currentid, 1);
 
-
+        this.setState({acsessories: acsessories})
+    }
     
-
     render(){
         return(
             <div>
-                <AcsessoriesList acsessories={this.state.acsessories} />
+                <AcsessoriesList deleate={this.deleateAcsessories} acsessories={this.state.acsessories} />
                 <div className='addBlock'>
                     <AcsessoresName change= {this.changeName} />
                     <AcsessoresAmount change= {this.changeAmount} />

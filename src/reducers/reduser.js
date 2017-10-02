@@ -1,4 +1,4 @@
-import { ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD, TOGGLE_ACCESSORIES, CHANGE_FILTER } from "../const/const";
+import { ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD, TOGGLE_ACCESSORIES, CHANGE_FILTER, ADD_NEW_TASK } from "../const/const";
 
 function carApp(state = [], action) {
     switch (action.type) {
@@ -31,6 +31,14 @@ function carApp(state = [], action) {
       })})
       case CHANGE_FILTER:
         return Object.assign({}, state, {filter: action.filter})
+      case ADD_NEW_TASK:
+        return Object.assign({}, state, {cars: state.cars.map(function(car){
+          if (car.id === +state.activeCarId){
+            Object.assign({}, car, {workItems: [...car.workItems, action.task]})
+          } else {
+            return car;
+          }
+        })})  
       default:
         return state
     }

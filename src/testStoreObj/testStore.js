@@ -1,4 +1,5 @@
 const testStore = {
+    taskId: 1,
     activeCarId: 123,
     filter:"ALL",
     add: false,
