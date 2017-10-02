@@ -14,7 +14,7 @@ function AmountInput(props){
     }
 
     return(
-        <input onKeyPress={onlyNum} onChange={changeEvent} className="acsessories-amount" type="text" placeholder="Количество"/>
+        <input onKeyPress={onlyNum} onChange={changeEvent} className="acsessories-amount" type="text" placeholder="Количество" value={props.val}/>
     )
 }
 
