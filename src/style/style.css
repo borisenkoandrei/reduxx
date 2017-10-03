@@ -1,65 +1,69 @@
-.appWrapper{
-    display: flex;
+.appWrapper {
+  display: flex;
 }
-.active-car{
-    width: 300px;
-    margin-right: 20px;
-    box-sizing: border-box;
-    border-right: 1px solid;
-}
-
-.work-block{
-    width: 100%;
+.active-car {
+  width: 300px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid;
 }
 
-.filter-block{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+.work-block {
+  width: 100%;
 }
 
-.filter-block_button{
-    margin-right: 30px;
+.filter-block {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.tasks-block{
-    width: 100%;
+.filter-block_button {
+  margin-right: 30px;
 }
 
-.tasks-block_table{
-    width: 100%;
+.tasks-block {
+  width: 100%;
 }
 
-.row-name{
-    width: 110px;
+.tasks-block_table {
+  width: 100%;
 }
 
-.finished{
-    text-decoration: line-through;    
+.row-name {
+  width: 110px;
 }
 
-.new-task-modal{
-    display: flex;
-    width: 350px;
-    flex-direction: column;
+.finished {
+  text-decoration: line-through;
 }
 
-.new-task-modal_input{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 10px;
+.new-task-modal {
+  display: flex;
+  width: 350px;
+  flex-direction: column;
 }
 
-.addBlock{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.new-task-modal_input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
 }
 
-.acsessories-amount{
-    width: 50px;
+.addBlock {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.acsessories-amount {
+  width: 50px;
+}
+
+.compleate-task {
+  background-color: blueviolet;
 }

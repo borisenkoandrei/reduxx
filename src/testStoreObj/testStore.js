@@ -1,114 +1,172 @@
 const testStore = {
-    taskId: 1,
-    activeCarId: 123,
-    filter:"ALL",
-    add: false,
-    cars:[
+  taskId: 1,
+  activeCarId: 123,
+  filter: "ALL",
+  add: false,
+  cars: [
+    {
+      id: 123,
+      brand: "Ford",
+      model: "Focus",
+      year: 2006,
+      engineCapacity: 1.8,
+      hp: 125,
+      vin: "QWEX12345ZXC",
+      workItems: [
         {
-            id:123,
-            brand:"Ford",
-            model:"Focus",
-            year: 2006,
-            engineCapacity: 1.8,
-            hp: 125,
-            vin: "QWEX12345ZXC",
-            workItems:[
-                {
-                    id:"324",
-                    complited: false,            
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:1, name:"1", finished: true},{id:2,name:"2", finished: true},{id:3,name:"3", finished: false},{id:4,name:"4", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:5,name:"1", finished: true},{id:6,name:"2", finished: true},{id:7,name:"3", finished: false},{id:8,name:"4", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:9,name:"1", finished: true},{id:10,name:"2", finished: true},{id:11,name:"3", finished: false},{id:12,name:"4", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:13,name:"1", finished: true},{id:14,name:"2", finished: true},{id:15,name:"3", finished: false},{id:16,name:"4", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:17,name:"1", finished: true},{id:18,name:"2", finished: true},{id:19,name:"3", finished: false},{id:20,name:"4", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },
-            ]
-        },{
-            
-            id:456,
-            brand:"Ford",
-            model:"Mondeo",
-            year: 2017,
-            engineCapacity: 2.0,
-            hp: 155,
-            vin: "ASD123456TYU",
-            workItems:[
-                {
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:21,name:"11", finished: true},{id:22,name:"11", finished: true},{id:23,name:"11", finished: false},{id:24,name:"11", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:25,name:"22", finished: true},{id:26,name:"22", finished: true},{id:27,name:"22", finished: false},{id:28,name:"22", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:29,name:"33", finished: true},{id:30,name:"33", finished: true},{id:31,name:"33", finished: false},{id:32,name:"33", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:33,name:"44", finished: true},{id:34,name:"44", finished: true},{id:35,name:"44", finished: false},{id:36,name:"44", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },{
-                    id:"324",
-                    complited: false,
-                    workType:"Замена *",
-                    cost: "1000$",
-                    accessories: [{id:37,name:"1", finished: true},{id:38,name:"2", finished: true},{id:39,name:"3", finished: false},{id:40,name:"44", finished: false}],
-                    currentDate: "12/07/17",
-                    pastDate: "12/07/16",
-                },
-            ]
+          id: "1",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 1, amount: 1, name: "1", finished: true },
+            { id: 2, name: "2", finished: true },
+            { id: 3, name: "3", finished: false },
+            { id: 4, name: "4", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "2",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 5, name: "1", finished: true },
+            { id: 6, name: "2", finished: true },
+            { id: 7, name: "3", finished: false },
+            { id: 8, name: "4", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "3",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 9, name: "1", finished: true },
+            { id: 10, name: "2", finished: true },
+            { id: 11, name: "3", finished: false },
+            { id: 12, name: "4", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "4",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 13, name: "1", finished: true },
+            { id: 14, name: "2", finished: true },
+            { id: 15, name: "3", finished: false },
+            { id: 16, name: "4", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "5",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 17, name: "1", finished: true },
+            { id: 18, name: "2", finished: true },
+            { id: 19, name: "3", finished: false },
+            { id: 20, name: "4", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
         }
-    ]
-}
+      ]
+    },
+    {
+      id: 456,
+      brand: "Ford",
+      model: "Mondeo",
+      year: 2017,
+      engineCapacity: 2.0,
+      hp: 155,
+      vin: "ASD123456TYU",
+      workItems: [
+        {
+          id: "6",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 21, name: "11", finished: true },
+            { id: 22, name: "11", finished: true },
+            { id: 23, name: "11", finished: false },
+            { id: 24, name: "11", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "7",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 25, name: "22", finished: true },
+            { id: 26, name: "22", finished: true },
+            { id: 27, name: "22", finished: false },
+            { id: 28, name: "22", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "8",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 29, name: "33", finished: true },
+            { id: 30, name: "33", finished: true },
+            { id: 31, name: "33", finished: false },
+            { id: 32, name: "33", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "9",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 33, name: "44", finished: true },
+            { id: 34, name: "44", finished: true },
+            { id: 35, name: "44", finished: false },
+            { id: 36, name: "44", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        {
+          id: "10",
+          complited: false,
+          workType: "Замена *",
+          cost: "1000$",
+          accessories: [
+            { id: 37, name: "1", finished: true },
+            { id: 38, name: "2", finished: true },
+            { id: 39, name: "3", finished: false },
+            { id: 40, name: "44", finished: false }
+          ],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        }
+      ]
+    }
+  ]
+};
 
 export default testStore;

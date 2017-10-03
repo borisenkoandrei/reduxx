@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Input({label, id, change, val}){
-
     function handleChange(event){
         let value=event.target.value;
         change(value);
@@ -9,7 +8,7 @@ function Input({label, id, change, val}){
 
     return(
         <label className='new-task-modal_input' htmlFor={id}>{label}
-            <input id={id} type="text" onChange={handleChange} />
+            <input className="ant-input" id={id} type="text" onChange={handleChange} />
         </label>
     )
 }

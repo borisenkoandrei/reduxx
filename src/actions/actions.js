@@ -1,4 +1,12 @@
-import {ADD_NEW_CAR, CHANGE_ACTIVE_CAR, START_ADD_NEW_CARD, TOGGLE_ACCESSORIES, CHANGE_FILTER, ADD_NEW_TASK} from '../const/const';
+import {ADD_NEW_CAR,
+         CHANGE_ACTIVE_CAR,
+         START_ADD_NEW_CARD,
+         TOGGLE_ACCESSORIES,
+         CHANGE_FILTER,
+         ADD_NEW_TASK,
+         COMPLITE_TASK,
+        
+        } from '../const/const';
 
 function addNewCar(carObj){
     return {
@@ -43,6 +51,13 @@ function addNewTask(task){
     }
 }
 
+function compliteTask(id){
+    return{
+        type: COMPLITE_TASK,
+        id,
+    }
+}
 
-export { addNewCar, changeActiveCar, startAddNewCar, toggleAccessories, changeFilter, addNewTask};
+
+export { addNewCar, changeActiveCar, startAddNewCar, toggleAccessories, changeFilter, addNewTask, compliteTask};
 
