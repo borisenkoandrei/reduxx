@@ -81,8 +81,6 @@ class AddNewTaskBlock extends React.Component {
         acsessoriesName: "",
         acsessoriesAmount: ""
       });
-
-      console.log(this.state);
     }
   }
 
@@ -100,7 +98,6 @@ class AddNewTaskBlock extends React.Component {
   }
 
   getDate(date, dateString) {
-    console.log(dateString);
     this.setState({ date: dateString });
   }
 
@@ -113,9 +110,6 @@ class AddNewTaskBlock extends React.Component {
       currentDate: this.state.date,
       pastDate: ""
     };
-
-    console.log(this);
-    console.log(typeof this.ADD_TASK);
 
     this.ADD_TASK(taskObj);
 

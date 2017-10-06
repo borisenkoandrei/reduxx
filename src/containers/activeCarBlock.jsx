@@ -1,61 +1,67 @@
-import React from 'react';
-import { connect } from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
+import { Button } from "antd";
 
-import Activecar from '../components/ActiveCar';
-import AddNewCar from '../components/AddNewCar';
-import ChangeActiveCar from '../components/ChangeActiveCar';
-import AddNewCarButton from '../components/AddNewCarButton';
-import { startAddNewCar, changeActiveCar, addNewCar } from '../actions/actions';
+import Activecar from "../components/ActiveCar";
+import AddNewCar from "../components/AddNewCar";
+import ChangeActiveCar from "../components/ChangeActiveCar";
+import AddNewCarButton from "../components/AddNewCarButton";
+import { startAddNewCar, changeActiveCar, addNewCar } from "../actions/actions";
 
-function ActiveCarBlock(props){
-    return(
-        <div className="active-car">
-            <Activecar add={props.add} activeCarData={props.activeCarData} />
-            <AddNewCar add={props.add} addNewCar ={props.addNewCar} openAddWindow={props.openAddWindow} changeActiveCar = {props.changeActiveCar} />
-            <ChangeActiveCar changeActiveCar = {props.changeActiveCar}  cars={props.cars} activeCar = {props.activeCar}/>
-            <AddNewCarButton openAddWindow={props.openAddWindow}/>
-        </div>
-    )
+function ActiveCarBlock(props) {
+  return (
+    <div className="active-car">
+      <Activecar add={props.add} activeCarData={props.activeCarData} />
+      <AddNewCar
+        add={props.add}
+        addNewCar={props.addNewCar}
+        openAddWindow={props.openAddWindow}
+        changeActiveCar={props.changeActiveCar}
+      />
+      <ChangeActiveCar
+        changeActiveCar={props.changeActiveCar}
+        cars={props.cars}
+        activeCar={props.activeCar}
+      />
+      <Button onClick={props.openAddWindow}>Сохранить</Button>
+    </div>
+  );
 }
 
-function getActiveCarData (id, cars){
-  
+function getActiveCarData(id, cars) {
   let result;
-  
-  cars.forEach(function(car){
-    if (car.id === +id){
+
+  cars.forEach(function(car) {
+    if (car.id === +id) {
       result = car;
     }
-  })
+  });
 
   return result;
-};
+}
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    state:state,
-    activeCar:state.activeCarId,
+    state: state,
+    activeCar: state.activeCarId,
     activeCarData: getActiveCarData(state.activeCarId, state.cars),
     add: state.add,
-    cars: state.cars,
-   
-  }
-}
+    cars: state.cars
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     openAddWindow: () => {
       dispatch(startAddNewCar());
     },
-    changeActiveCar: (id) => {
-        dispatch(changeActiveCar(id));
+    changeActiveCar: id => {
+      dispatch(changeActiveCar(id));
     },
-    addNewCar: (newCar) =>{
-      dispatch(addNewCar(newCar))
+    addNewCar: newCar => {
+      dispatch(addNewCar(newCar));
     }
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(ActiveCarBlock)
-
-
+export default connect(mapStateToProps, mapDispatchToProps)(ActiveCarBlock);

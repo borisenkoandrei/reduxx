@@ -1,21 +1,24 @@
 import React from "react";
+import { Select } from "antd";
+const Option = Select.Option;
 
-function ChangeActiveCar(props) {
-  const cars = props.cars;
+function ChangeActiveCar({ cars, changeActiveCar, activeCar }) {
+  function handleChange(value) {
+    changeActiveCar(value);
+  }
 
   return (
-    <select
-      onChange={e => {
-        props.changeActiveCar(e.target.value);
-      }}
-      value={props.activecar}
+    <Select
+      defaultValue={activeCar.toString()}
+      style={{ width: 120 }}
+      onChange={handleChange}
     >
       {cars.map((car, index) => (
-        <option key={index} value={car.id}>
+        <Option key={index} value={car.id.toString()}>
           {car.model}
-        </option>
+        </Option>
       ))}
-    </select>
+    </Select>
   );
 }
 
