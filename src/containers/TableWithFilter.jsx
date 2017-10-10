@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Filter from "../components/Filter";
-import Tasks from "../components/Tasks";
+import Filter from "../components/Table/Filter";
+import Tasks from "../components/Table/Tasks";
 
 import {
   toggleAccessories,
   changeFilter,
-  compliteTask
+  compliteTask,
+  acsessoriesChanging
 } from "../actions/actions";
 
 function TableWithFilter(props) {
@@ -19,6 +20,7 @@ function TableWithFilter(props) {
         filter={props.filter}
         tasks={props.tasks}
         onToggle={props.toggleAccessories}
+        acsessoriesChanging={props.acsessoriesChanging}
       />
     </div>
   );
@@ -52,6 +54,9 @@ const mapDispatchToProps = dispatch => {
     },
     compliteTask: id => {
       dispatch(compliteTask(id));
+    },
+    acsessoriesChanging: acsessoriesItem => {
+      dispatch(acsessoriesChanging(acsessoriesItem));
     }
   };
 };

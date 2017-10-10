@@ -1,8 +1,7 @@
 import React from "react";
-import "./style/style.css";
 import ActiveCarBlock from "./containers/activeCarBlock";
 import TableWithFilter from "./containers/TableWithFilter";
-import AddNewTask from "./components/AddNewTaskBlock/AddNewTaskBlock";
+import AddNewTask from "./components/AddNewTaskBlock/index";
 
 function App(props) {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
-import "../style/AddNevCarS.css";
+import "../../style/AddNevCarS.css";
+import { Input, Button } from "antd";
 
 function AddNewCar(props) {
   if (!props.add) {
@@ -22,39 +23,66 @@ function AddNewCar(props) {
 
     props.addNewCar(newCar);
     props.openAddWindow();
+    console.log(id);
     props.changeActiveCar(id);
   }
 
   return (
-    <form className="add-new-car" action="submite" onSubmit={createCarObj}>
+    <form
+      id="add-new-car_form"
+      className="add-new-car"
+      action="submite"
+      onSubmit={createCarObj}
+    >
       <label className="add-new-car_label" htmlFor="brand">
-        Марка<input type="text" id="brand" name="brand" />
+        Марка<Input
+          className="new-car_input"
+          type="text"
+          id="brand"
+          name="brand"
+        />
       </label>
       <label className="add-new-car_label" htmlFor="model">
-        Модель<input type="text" id="model" name="model" />
+        Модель<Input
+          className="new-car_input"
+          type="text"
+          id="model"
+          name="model"
+        />
       </label>
       <label className="add-new-car_label" htmlFor="year">
-        Год<input type="text" id="year" name="year" />
+        Год<Input className="new-car_input" type="text" id="year" name="year" />
       </label>
       <label className="add-new-car_label" htmlFor="engine-capacity">
-        Объем двигалеля<input
+        Объем двигалеля<Input
+          className="new-car_input"
           type="text"
           id="engineCapacity"
           name="engineCapacity"
         />
       </label>
       <label className="add-new-car_label" htmlFor="hp">
-        Мощьность двигателя<input type="text" id="hp" name="hp" />
+        Мощьность двигателя
+        <Input className="new-car_input" type="text" id="hp" name="hp" />
       </label>
       <label className="add-new-car_label" htmlFor="vin">
-        VIN<input type="text" id="vin" name="vin" />
+        VIN
+        <Input className="new-car_input" type="text" id="vin" name="vin" />
       </label>
-      <input
+      <Button
+        type="submit"
+        htmlType="submit"
+        name="Submit"
+        form="add-new-car_form"
+      >
+        Сохранить
+      </Button>
+      {/* <input
         className="add-new-car_label"
         type="submit"
         name="Submit"
         value="Сохранить"
-      />
+      /> */}
     </form>
   );
 }

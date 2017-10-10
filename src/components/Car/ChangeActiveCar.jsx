@@ -4,12 +4,13 @@ const Option = Select.Option;
 
 function ChangeActiveCar({ cars, changeActiveCar, activeCar }) {
   function handleChange(value) {
+    console.log(value);
     changeActiveCar(value);
   }
 
   return (
     <Select
-      defaultValue={activeCar.toString()}
+      value={activeCar.toString()}
       style={{ width: 120 }}
       onChange={handleChange}
     >

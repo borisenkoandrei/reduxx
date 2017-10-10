@@ -1,8 +1,9 @@
 import React from "react";
-import Accessories from "../components/Accessories";
-import CompliteButton from "../components/CompliteTaskButton";
+import Accessories from "../Acsessories/Accessories";
+import CompliteButton from "./CompliteTaskButton";
+import DeleteButton from "../DeleteTaskButton/index";
 
-function Task({ task, onToggle, compliteTask }) {
+function Task({ task, onToggle, compliteTask, acsessoriesChanging }) {
   let {
     workType,
     cost,
@@ -18,7 +19,11 @@ function Task({ task, onToggle, compliteTask }) {
       <td>{workType}</td>
       <td>{cost}</td>
       <td>
-        <Accessories onToggle={onToggle} accessories={accessories} />
+        <Accessories
+          onToggle={onToggle}
+          accessories={accessories}
+          acsessoriesChanging={acsessoriesChanging}
+        />
       </td>
       <td>{currentDate}</td>
       <td>{pastDate}</td>
@@ -28,6 +33,7 @@ function Task({ task, onToggle, compliteTask }) {
           complited={complited}
           id={id}
         />
+        <DeleteButton />
       </td>
     </tr>
   );

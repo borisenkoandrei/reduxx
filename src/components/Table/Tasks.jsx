@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-function Tasks({ tasks, onToggle, filter, compliteTask }) {
+function Tasks({ tasks, onToggle, filter, compliteTask, acsessoriesChanging }) {
   function filterTasks(tasks, filter) {
     switch (filter) {
       case "ALL":
@@ -39,6 +39,7 @@ function Tasks({ tasks, onToggle, filter, compliteTask }) {
                 key={index}
                 onToggle={onToggle}
                 task={task}
+                acsessoriesChanging={acsessoriesChanging}
               />
             );
           })}

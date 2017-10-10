@@ -5,7 +5,8 @@ import {
   TOGGLE_ACCESSORIES,
   CHANGE_FILTER,
   ADD_NEW_TASK,
-  COMPLITE_TASK
+  COMPLITE_TASK,
+  ACSESSORIE_CHENGING
 } from "../const/const";
 
 function carApp(state = [], action) {
@@ -69,6 +70,30 @@ function carApp(state = [], action) {
                 } else {
                   return workitem;
                 }
+              })
+            });
+          } else {
+            return car;
+          }
+        })
+      });
+    case ACSESSORIE_CHENGING:
+      return Object.assign({}, state, {
+        cars: state.cars.map(function(car) {
+          if (car.id === +state.activeCarId) {
+            return Object.assign({}, car, {
+              workItems: car.workItems.map(function(workItem) {
+                return Object.assign({}, workItem, {
+                  accessories: workItem.accessories.map(function(acsessorie) {
+                    if (+acsessorie.id === +action.id) {
+                      return Object.assign({}, acsessorie, {
+                        changing: !acsessorie.changing
+                      });
+                    } else {
+                      return acsessorie;
+                    }
+                  })
+                });
               })
             });
           } else {

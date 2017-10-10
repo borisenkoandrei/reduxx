@@ -2,10 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Button } from "antd";
 
-import Activecar from "../components/ActiveCar";
-import AddNewCar from "../components/AddNewCar";
-import ChangeActiveCar from "../components/ChangeActiveCar";
-import AddNewCarButton from "../components/AddNewCarButton";
+import Activecar from "../components/Car/ActiveCar";
+import AddNewCar from "../components/Car/AddNewCar";
+import ChangeActiveCar from "../components/Car/ChangeActiveCar";
 import { startAddNewCar, changeActiveCar, addNewCar } from "../actions/actions";
 
 function ActiveCarBlock(props) {
@@ -23,7 +22,7 @@ function ActiveCarBlock(props) {
         cars={props.cars}
         activeCar={props.activeCar}
       />
-      <Button onClick={props.openAddWindow}>Сохранить</Button>
+      <Button onClick={props.openAddWindow}>Добавить</Button>
     </div>
   );
 }

@@ -126,6 +126,7 @@ class AddNewTaskBlock extends React.Component {
 
   cancel() {
     this.setState({
+      modalIsOpen: false,
       acsessories: [],
       acsessoriesName: "",
       acsessoriesAmount: "",
@@ -139,7 +140,7 @@ class AddNewTaskBlock extends React.Component {
     return (
       <div>
         {!this.state.modalIsOpen ? null : (
-          <div>
+          <div className="task-modal">
             <Input
               label="Работа"
               id="work"
@@ -168,6 +169,14 @@ class AddNewTaskBlock extends React.Component {
               val={this.state.acsessoriesAmount}
             />
             <Button onClick={this.addAcsessories}>Добавить</Button>
+            <div>
+              <Button icon="save" onClick={this.getTaskObject}>
+                Сохранить
+              </Button>
+              <Button icon="close" onClick={this.cancel}>
+                Отмена
+              </Button>
+            </div>
           </div>
         )}
         {!this.state.modalIsOpen ? (
@@ -175,16 +184,6 @@ class AddNewTaskBlock extends React.Component {
             Добавить
           </Button>
         ) : null}
-        {!this.state.modalIsOpen ? null : (
-          <div>
-            <Button icon="save" onClick={this.getTaskObject}>
-              Сохранить
-            </Button>
-            <Button icon="close" onClick={this.cancel}>
-              Отмена
-            </Button>
-          </div>
-        )}
       </div>
     );
   }

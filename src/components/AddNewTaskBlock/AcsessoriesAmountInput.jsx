@@ -10,21 +10,22 @@ function AmountInput(props) {
     }
   }
 
-  function onlyNum(e) {
-    console.log(e);
-    let key = +e.key;
-    if (isNaN(key)) {
-      e.preventDefault();
-    }
-  }
+  // function onlyNum(e) {
+  //   console.log(e);
+  //   let key = +e.key;
+  //   if (isNaN(key)) {
+  //     e.preventDefault();
+  //   }
+  // }
 
   return (
     // <input onKeyPress={onlyNum} onChange={changeEvent} className="acsessories-amount" type="text" placeholder="Количество" value={props.val}/>
     <InputNumber
-      defaultValue={props.val}
+      value={props.val}
       onClick={e => console.log(e)}
       onChange={changeEvent}
       onKeyPress={e => console.log(e)}
+      placeholder="Количество"
     />
   );
 }
