@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "antd";
 import Modal from "../Modal/index";
+import DeleateModal from "../Modal/DeleateTaskModal"
 
 class DeleteTask extends React.Component {
   constructor(props) {
@@ -10,34 +11,38 @@ class DeleteTask extends React.Component {
     };
 
     this.handleShow = this.handleShow.bind(this);
+    this.handleHide = this.handleHide.bind(this);
+    this.ok = this.ok.bind(this);
   }
 
   handleShow() {
-    this.setState({ showModal: true });
+    this.setState({ modalIsOpen: true });
+  }
+
+  handleHide(){
+    this.setState({ modalIsOpen: false });
+  }
+
+  ok(){
+    this.setState({ modalIsOpen: false });
+    this.props.deleateTask(this.props.id);
+    console.log(typeof this.props.id)
   }
 
   render() {
     const ml = this.state.modalIsOpen ? (
       <Modal>
-        <div className="modal">
-          <div>
-            With a portal, we can render content into a different part of the
-            DOM, as if it were any other React child.
-          </div>
-          This is being rendered inside the #modal-container div.
-          <button onClick={this.handleHide}>Hide modal</button>
-        </div>
+        <DeleateModal hide={this.handleHide} ok={this.ok} />
       </Modal>
     ) : null;
 
     return (
-      <div>
+      <div className="deleate-task">
         <Button
-          className="deleate-task"
           icon="delete"
           type="danger"
           onClick={() =>
-            this.setState({ modalIsOpen: !this.state.modalIsOpen })}
+            this.handleShow()}
         />
         {ml}
       </div>

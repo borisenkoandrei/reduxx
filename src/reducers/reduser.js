@@ -108,7 +108,7 @@ function carApp(state = [], action) {
           if (car.id === +state.activeCarId) {
             return Object.assign({}, car, {
               workItems: car.workItems.filter(
-                workItem => +workItem.id !== action.id
+                workItem => +workItem.id !== +action.id
               )
             });
           } else {
