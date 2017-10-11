@@ -3,7 +3,13 @@ import Accessories from "../Acsessories/Accessories";
 import CompliteButton from "./CompliteTaskButton";
 import DeleteButton from "../DeleteTaskButton/index";
 
-function Task({ task, onToggle, compliteTask, acsessoriesChanging }) {
+function Task({
+  task,
+  onToggle,
+  compliteTask,
+  acsessoriesChanging,
+  deleteTask
+}) {
   let {
     workType,
     cost,
@@ -33,7 +39,7 @@ function Task({ task, onToggle, compliteTask, acsessoriesChanging }) {
           complited={complited}
           id={id}
         />
-        <DeleteButton />
+        <DeleteButton id={id} deleateTask={deleteTask} />
       </td>
     </tr>
   );

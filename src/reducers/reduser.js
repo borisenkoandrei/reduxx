@@ -6,7 +6,8 @@ import {
   CHANGE_FILTER,
   ADD_NEW_TASK,
   COMPLITE_TASK,
-  ACSESSORIE_CHENGING
+  ACSESSORIE_CHENGING,
+  DELETE_TASK
 } from "../const/const";
 
 function carApp(state = [], action) {
@@ -95,6 +96,20 @@ function carApp(state = [], action) {
                   })
                 });
               })
+            });
+          } else {
+            return car;
+          }
+        })
+      });
+    case DELETE_TASK:
+      return Object.assign({}, state, {
+        cars: state.cars.map(function(car) {
+          if (car.id === +state.activeCarId) {
+            return Object.assign({}, car, {
+              workItems: car.workItems.filter(
+                workItem => +workItem.id !== action.id
+              )
             });
           } else {
             return car;

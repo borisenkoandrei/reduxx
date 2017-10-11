@@ -1,7 +1,14 @@
 import React from "react";
 import Task from "./Task";
 
-function Tasks({ tasks, onToggle, filter, compliteTask, acsessoriesChanging }) {
+function Tasks({
+  tasks,
+  onToggle,
+  filter,
+  compliteTask,
+  acsessoriesChanging,
+  deleteTask
+}) {
   function filterTasks(tasks, filter) {
     switch (filter) {
       case "ALL":
@@ -40,6 +47,7 @@ function Tasks({ tasks, onToggle, filter, compliteTask, acsessoriesChanging }) {
                 onToggle={onToggle}
                 task={task}
                 acsessoriesChanging={acsessoriesChanging}
+                deleteTask={deleteTask}
               />
             );
           })}

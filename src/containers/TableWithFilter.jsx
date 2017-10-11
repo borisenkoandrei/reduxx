@@ -8,7 +8,8 @@ import {
   toggleAccessories,
   changeFilter,
   compliteTask,
-  acsessoriesChanging
+  acsessoriesChanging,
+  deleteTask
 } from "../actions/actions";
 
 function TableWithFilter(props) {
@@ -21,6 +22,7 @@ function TableWithFilter(props) {
         tasks={props.tasks}
         onToggle={props.toggleAccessories}
         acsessoriesChanging={props.acsessoriesChanging}
+        deleteTask={props.deleteTask}
       />
     </div>
   );
@@ -57,6 +59,9 @@ const mapDispatchToProps = dispatch => {
     },
     acsessoriesChanging: acsessoriesItem => {
       dispatch(acsessoriesChanging(acsessoriesItem));
+    },
+    deleteTask: id => {
+      dispatch(deleteTask(id));
     }
   };
 };
