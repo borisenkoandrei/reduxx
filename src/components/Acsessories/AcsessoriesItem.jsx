@@ -8,19 +8,39 @@ function AcsessoriesItem({ item, toggle, acsessoriesChanging }) {
 
   if (!item.changing) {
     return (
-      <div>
+      <div className="acsessories-item">
         <Checkbox id={item.id} checked={item.finished} onChange={toggle}>
           {item.name}
         </Checkbox>
-        <Button icon="edit" onClick={chaining} />
+        <Button
+          className="acsessories-item_button"
+          icon="edit"
+          onClick={chaining}
+        />
       </div>
     );
   } else {
     return (
-      <div>
-        <Input defaultValue={item.name} />
-        <Input defaultValue={item.amount} />
-        <Button icon="edit" onClick={chaining} />
+      <div className="acsessories-item">
+        <form>
+          <label>
+            Название:
+            <Input placeholder="Название" defaultValue={item.name} />
+          </label>
+          <label>
+            Количество:
+            <Input placeholder="Количество" defaultValue={item.amount} />
+          </label>
+          <label>
+            Соимость:
+            <Input placeholder="Стоимость" />
+          </label>
+        </form>
+        <Button
+          className="acsessories-item_button active"
+          icon="edit"
+          onClick={chaining}
+        />
       </div>
     );
   }

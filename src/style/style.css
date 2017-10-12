@@ -2,7 +2,7 @@ body {
   position: relative;
 }
 
-#modal{
+#modal {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -100,13 +100,27 @@ body {
 }
 
 /* MODAL_DELETE_TASK */
-.delete-modal_title{
+.delete-modal_title {
   width: 100%;
   text-align: center;
   padding-bottom: 20px;
 }
 
-.delete-modal_buttons{
+.delete-modal_buttons {
   display: flex;
   justify-content: space-between;
+}
+
+/* ACSESSORIES_ITEM */
+.acsessories-item_button {
+  opacity: 0;
+  transition: hover 0.5s;
+}
+
+.acsessories-item:hover .acsessories-item_button {
+  opacity: 1;
+}
+
+.acsessories-item_button.active {
+  opacity: 1;
 }
