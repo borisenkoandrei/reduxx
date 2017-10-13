@@ -3,6 +3,22 @@ const testStore = {
   activeCarId: 123,
   filter: "ALL",
   add: false,
+  deleateTasks: {
+    789: {
+      id: "11",
+      complited: false,
+      workType: "Замена *",
+      cost: "1000$",
+      accessories: [
+        { id: 1, amount: 1, name: "1", finished: true, changing: false },
+        { id: 2, name: "2", finished: true, changing: false },
+        { id: 3, name: "3", finished: false, changing: false },
+        { id: 4, name: "4", finished: false, changing: false }
+      ],
+      currentDate: "12/07/17",
+      pastDate: "12/07/16"
+    }
+  },
   cars: [
     {
       id: 123,
@@ -19,8 +35,8 @@ const testStore = {
           workType: "Замена *",
           cost: "1000$",
           accessories: [
-            { id: 1, amount: 1, name: "1", finished: true, changing: false },
-            { id: 2, name: "2", finished: true, changing: false },
+            { id: 1, amount: 1444, name: "1", finished: true, changing: false },
+            { id: 2, name: "2", cost: 123, finished: true, changing: false },
             { id: 3, name: "3", finished: false, changing: false },
             { id: 4, name: "4", finished: false, changing: false }
           ],

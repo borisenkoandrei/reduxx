@@ -23,7 +23,6 @@ function AddNewCar(props) {
 
     props.addNewCar(newCar);
     props.openAddWindow();
-    console.log(id);
     props.changeActiveCar(id);
   }
 
@@ -74,15 +73,13 @@ function AddNewCar(props) {
         htmlType="submit"
         name="Submit"
         form="add-new-car_form"
+        icon="save"
       >
         Сохранить
       </Button>
-      {/* <input
-        className="add-new-car_label"
-        type="submit"
-        name="Submit"
-        value="Сохранить"
-      /> */}
+      <Button icon="close" onClick={() => props.openAddWindow()}>
+        Отмена
+      </Button>
     </form>
   );
 }

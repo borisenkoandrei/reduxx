@@ -5,9 +5,24 @@ import { Button } from "antd";
 import Activecar from "../components/Car/ActiveCar";
 import AddNewCar from "../components/Car/AddNewCar";
 import ChangeActiveCar from "../components/Car/ChangeActiveCar";
-import { startAddNewCar, changeActiveCar, addNewCar } from "../actions/actions";
+import {
+  startAddNewCar,
+  changeActiveCar,
+  addNewCar,
+  deleteCar
+} from "../actions/actions";
 
 function ActiveCarBlock(props) {
+  let deleateButton =
+    props.activeCar === null ? null : (
+      <Button onClick={props.deleteCar} icon="delete" type="danger" />
+    );
+
+  function test(eveht) {
+    let a = document.querySelector(".ant-btn");
+    console.log(a);
+  }
+
   return (
     <div className="active-car">
       <Activecar add={props.add} activeCarData={props.activeCarData} />
@@ -22,7 +37,8 @@ function ActiveCarBlock(props) {
         cars={props.cars}
         activeCar={props.activeCar}
       />
-      <Button onClick={props.openAddWindow}>Добавить</Button>
+      <Button onClick={test}>Добавить</Button>
+      {deleateButton}
     </div>
   );
 }
@@ -59,6 +75,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     addNewCar: newCar => {
       dispatch(addNewCar(newCar));
+    },
+    deleteCar: () => {
+      dispatch(deleteCar());
     }
   };
 };

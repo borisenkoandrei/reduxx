@@ -7,7 +7,8 @@ import {
   ADD_NEW_TASK,
   COMPLITE_TASK,
   ACSESSORIE_CHENGING,
-  DELETE_TASK
+  DELETE_TASK,
+  DELETE_CAR
 } from "../const/const";
 
 function carApp(state = [], action) {
@@ -116,6 +117,25 @@ function carApp(state = [], action) {
           }
         })
       });
+    case DELETE_CAR:
+      function newId(cars, activeId) {
+        let carsArr = cars.slice();
+        carsArr = carsArr.filter(car => car.id !== activeId);
+        if (carsArr.length === 0) {
+          return null;
+        } else {
+          return carsArr[0].id;
+        }
+      }
+
+      return Object.assign(
+        {},
+        state,
+        { cars: state.cars.filter(car => car.id !== state.activeCarId) },
+        {
+          activeCarId: newId(state.cars, state.activeCarId)
+        }
+      );
     default:
       return state;
   }

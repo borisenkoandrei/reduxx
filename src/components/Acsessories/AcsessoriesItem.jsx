@@ -6,11 +6,20 @@ function AcsessoriesItem({ item, toggle, acsessoriesChanging }) {
     acsessoriesChanging(item);
   }
 
+  function changeItem(event) {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const amount = event.target.amount.value;
+    const id = item.id;
+
+    console.log(event.target);
+  }
+
   if (!item.changing) {
     return (
       <div className="acsessories-item">
         <Checkbox id={item.id} checked={item.finished} onChange={toggle}>
-          {item.name}
+          {`${item.name} ${item.amount ? item.amount : ""}`}
         </Checkbox>
         <Button
           className="acsessories-item_button"
@@ -22,25 +31,33 @@ function AcsessoriesItem({ item, toggle, acsessoriesChanging }) {
   } else {
     return (
       <div className="acsessories-item">
-        <form>
+        <form
+          onSubmit={e => {
+            changeItem(e);
+          }}
+        >
           <label>
             Название:
-            <Input placeholder="Название" defaultValue={item.name} />
+            <Input
+              name="name"
+              placeholder="Название"
+              defaultValue={item.name}
+            />
           </label>
           <label>
             Количество:
-            <Input placeholder="Количество" defaultValue={item.amount} />
+            <Input
+              name="amount"
+              placeholder="Количество"
+              defaultValue={item.amount}
+            />
           </label>
-          <label>
-            Соимость:
-            <Input placeholder="Стоимость" />
-          </label>
+          <Button
+            className="acsessories-item_button active"
+            icon="edit"
+            htmlType="submit"
+          />
         </form>
-        <Button
-          className="acsessories-item_button active"
-          icon="edit"
-          onClick={chaining}
-        />
       </div>
     );
   }

@@ -7,6 +7,9 @@ function ChangeActiveCar({ cars, changeActiveCar, activeCar }) {
     console.log(value);
     changeActiveCar(value);
   }
+  if (activeCar === null) {
+    return null;
+  }
 
   return (
     <Select

@@ -7,7 +7,8 @@ import {
   ADD_NEW_TASK,
   COMPLITE_TASK,
   ACSESSORIE_CHENGING,
-  DELETE_TASK
+  DELETE_TASK,
+  DELETE_CAR
 } from "../const/const";
 
 function addNewCar(carObj) {
@@ -73,6 +74,12 @@ function deleteTask(id) {
   };
 }
 
+function deleteCar() {
+  return {
+    type: DELETE_CAR
+  };
+}
+
 export {
   addNewCar,
   changeActiveCar,
@@ -82,5 +89,6 @@ export {
   addNewTask,
   compliteTask,
   acsessoriesChanging,
-  deleteTask
+  deleteTask,
+  deleteCar
 };

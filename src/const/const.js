@@ -6,4 +6,5 @@ export const CHANGE_FILTER = "CHANGE_FILTER";
 export const ADD_NEW_TASK = "ADD_NEW_TASK";
 export const COMPLITE_TASK = "COMPLITE_TASK";
 export const ACSESSORIE_CHENGING = "ACSESSORIE_CHENGING";
-export const DELETE_TASK = "DELETE_TASK"
+export const DELETE_TASK = "DELETE_TASK";
+export const DELETE_CAR = "DELETE_CAR";
