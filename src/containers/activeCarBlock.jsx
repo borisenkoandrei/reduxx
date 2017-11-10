@@ -4,6 +4,8 @@ import { Button } from "antd";
 
 import Activecar from "../components/Car/ActiveCar";
 import AddNewCar from "../components/Car/AddNewCar";
+import Modal from "../components/Modal/index";
+import NewModal from "../components/Modal/NewModal";
 import ChangeActiveCar from "../components/Car/ChangeActiveCar";
 import {
   startAddNewCar,
@@ -18,27 +20,23 @@ function ActiveCarBlock(props) {
       <Button onClick={props.deleteCar} icon="delete" type="danger" />
     );
 
-  function test(eveht) {
-    let a = document.querySelector(".ant-btn");
-    console.log(a);
-  }
-
   return (
     <div className="active-car">
       <Activecar add={props.add} activeCarData={props.activeCarData} />
-      <AddNewCar
-        add={props.add}
-        addNewCar={props.addNewCar}
-        openAddWindow={props.openAddWindow}
-        changeActiveCar={props.changeActiveCar}
-      />
       <ChangeActiveCar
         changeActiveCar={props.changeActiveCar}
         cars={props.cars}
         activeCar={props.activeCar}
       />
-      <Button onClick={test}>Добавить</Button>
+      <Button onClick={e => props.openAddWindow()}>Добавить</Button>
       {deleateButton}
+      <NewModal isOpen={props.add} mountTo={"#modal"}>
+        <AddNewCar
+          addNewCar={props.addNewCar}
+          openAddWindow={props.openAddWindow}
+          changeActiveCar={props.changeActiveCar}
+        />
+      </NewModal>
     </div>
   );
 }

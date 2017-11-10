@@ -3,9 +3,9 @@ import "../../style/AddNevCarS.css";
 import { Input, Button } from "antd";
 
 function AddNewCar(props) {
-  if (!props.add) {
-    return null;
-  }
+  // if (!props.add) {
+  //   return null;
+  // }
 
   function createCarObj(event) {
     event.preventDefault();
