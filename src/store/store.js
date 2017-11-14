@@ -1,13 +1,12 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import carApp from "../reducers/reduser";
+import rootReducer from "../reducers/rootReducer";
 import testStore from "../testStoreObj/testStore";
-// import   from "../testStoreObj/initialStore";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  carApp,
+  rootReducer,
   testStore,
   composeEnhancers(applyMiddleware(logger), applyMiddleware(thunk))
 );

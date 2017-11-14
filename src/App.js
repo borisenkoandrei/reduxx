@@ -1,18 +1,47 @@
 import React from "react";
-import ActiveCarBlock from "./containers/activeCarBlock";
-import TableWithFilter from "./containers/TableWithFilter";
-import AddNewTask from "./components/AddNewTaskBlock/index";
+import { connect } from "react-redux";
+
+import Filter from "./components/Filter/Filter";
+import Car from "./components/Car/Car";
+import ChangeCar from "./components/Car/ChangeCar";
+
+import { changeActiveCar } from "./actions/settingsAction";
+
+import "./style/style.css";
 
 function App(props) {
   return (
-    <div>
-      <div className="appWrapper">
-        <ActiveCarBlock />
-        <TableWithFilter />
+    <div className="app-wrapper">
+      <div className="car">
+        <Car car={props.car} />
+        <ChangeCar
+          cars={props.cars}
+          changeCar={props.changeActiveCar}
+          activeCar={props.activeCar}
+        />
       </div>
-      <AddNewTask />
+      <div className="main-section">
+        <Filter />
+      </div>
+      <div className="add-new-task" />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    car: state.cars[state.settings.activeCarId],
+    cars: state.cars,
+    activeCar: state.settings.activeCarId
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeActiveCar: id => {
+      dispatch(changeActiveCar(id));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

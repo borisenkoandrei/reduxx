@@ -1,10 +1,14 @@
-export const ADD_NEW_CAR = "ADD_NEW_CAR";
+/**ACCESSORY */
+export const ADD_ACCESSORY = "ADD_ACCESSORY";
+
+/**TASK */
+export const ADD_TASK = "ADD_TASK";
+
+/**CAR */
+export const ADD_CAR = "ADD_CAR";
+
+/**SETTINGS */
 export const CHANGE_ACTIVE_CAR = "CHANGE_ACTIVE_CAR";
-export const START_ADD_NEW_CARD = "START_ADD_NEW_CARD";
-export const TOGGLE_ACCESSORIES = "TOGGLE_ACCESSORIES";
 export const CHANGE_FILTER = "CHANGE_FILTER";
-export const ADD_NEW_TASK = "ADD_NEW_TASK";
-export const COMPLITE_TASK = "COMPLITE_TASK";
-export const ACSESSORIE_CHENGING = "ACSESSORIE_CHENGING";
+/**DELEATE_TASK */
 export const DELETE_TASK = "DELETE_TASK";
-export const DELETE_CAR = "DELETE_CAR";
