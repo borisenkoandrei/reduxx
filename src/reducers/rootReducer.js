@@ -9,7 +9,7 @@ import DeleateTaskReducer from "./deleateTaskReducer";
 export default combineReducers({
   cars: CarReducer,
   tasks: TaskReducer,
-  acsessories: AccessoryReducer,
+  accessories: AccessoryReducer,
   settings: SettingsReducer,
   deleteTasks: DeleateTaskReducer
 });

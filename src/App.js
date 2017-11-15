@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Filter from "./components/Filter/Filter";
 import Car from "./components/Car/Car";
 import ChangeCar from "./components/Car/ChangeCar";
+import Table from "./components/Table/Table";
 
 import { changeActiveCar } from "./actions/settingsAction";
 
@@ -22,6 +23,7 @@ function App(props) {
       </div>
       <div className="main-section">
         <Filter />
+        <Table activeCar={props.activeCar} />
       </div>
       <div className="add-new-task" />
     </div>

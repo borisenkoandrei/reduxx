@@ -27,22 +27,28 @@ const testStore = {
   },
   tasks: {
     123: {
-      activeTask: {
+      activeTasks: {
         1: {
           id: 1,
           complited: false,
-          workType: "Замена *",
+          workName: "Замена *",
           cost: "1000$",
-          accessories: [1, 2],
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         },
         2: {
           id: 2,
           complited: false,
-          workType: "Замена *",
+          workName: "Замена *",
           cost: "1000$",
-          accessories: [3, 4],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        3: {
+          id: 3,
+          complited: false,
+          workName: "Замена *",
+          cost: "1000$",
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         }
@@ -51,29 +57,77 @@ const testStore = {
         3: {
           id: 3,
           complited: false,
-          workType: "Замена *",
+          workName: "Замена *",
           cost: "1000$",
-          accessories: [1, 2],
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        4: {
+          id: 4,
+          complited: true,
+          workName: "Замена *",
+          cost: "1000$",
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        }
+      }
+    },
+    456: {
+      activeTasks: {
+        1: {
+          id: 1,
+          complited: true,
+          workName: "Замена *",
+          cost: "1000$",
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        2: {
+          id: 2,
+          complited: false,
+          workName: "Замена *",
+          cost: "1000$",
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        }
+      },
+      deletedTasks: {
+        3: {
+          id: 3,
+          complited: false,
+          workName: "Замена *",
+          cost: "1000$",
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         },
         4: {
           id: 4,
           complited: false,
-          workType: "Замена *",
+          workName: "Замена *",
           cost: "1000$",
-          accessories: [3, 4],
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         }
       }
     }
   },
-  acsessories: {
-    1: { id: 1, name: "1", finished: true, changing: false },
-    2: { id: 2, name: "2", finished: false, changing: false },
-    3: { id: 3, name: "3", finished: false, changing: false },
-    4: { id: 4, name: "4", finished: true, changing: false }
+  accessories: {
+    1: {
+      1: { id: 1, name: "1", finished: true, changing: false },
+      2: { id: 2, name: "2", finished: false, changing: false }
+    },
+    2: {
+      3: { id: 3, name: "3", finished: false, changing: false },
+      4: { id: 4, name: "4", finished: true, changing: false }
+    },
+    3: {
+      1: { id: 1, name: "1", finished: true, changing: false },
+      2: { id: 2, name: "2", finished: false, changing: false }
+    },
+    4: {
+      3: { id: 3, name: "3", finished: false, changing: false },
+      4: { id: 4, name: "4", finished: true, changing: false }
+    }
   }
 };
 
