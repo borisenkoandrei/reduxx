@@ -4,6 +4,8 @@ import logger from "redux-logger";
 import rootReducer from "../reducers/rootReducer";
 import testStore from "../testStoreObj/testStore";
 
+import { toggleCompliteTask } from "../actions/taskAction";
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,

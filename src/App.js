@@ -23,7 +23,7 @@ function App(props) {
       </div>
       <div className="main-section">
         <Filter />
-        <Table activeCar={props.activeCar} />
+        <Table />
       </div>
       <div className="add-new-task" />
     </div>

@@ -31,6 +31,7 @@ const testStore = {
         1: {
           id: 1,
           complited: false,
+          deleted: false,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -39,6 +40,7 @@ const testStore = {
         2: {
           id: 2,
           complited: false,
+          deleted: false,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -57,6 +59,7 @@ const testStore = {
         3: {
           id: 3,
           complited: false,
+          deleted: true,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -65,6 +68,7 @@ const testStore = {
         4: {
           id: 4,
           complited: true,
+          deleted: true,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -77,6 +81,7 @@ const testStore = {
         1: {
           id: 1,
           complited: true,
+          deleted: false,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -85,6 +90,7 @@ const testStore = {
         2: {
           id: 2,
           complited: false,
+          deleted: false,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -95,6 +101,7 @@ const testStore = {
         3: {
           id: 3,
           complited: false,
+          deleted: true,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -103,6 +110,7 @@ const testStore = {
         4: {
           id: 4,
           complited: false,
+          deleted: true,
           workName: "Замена *",
           cost: "1000$",
           currentDate: "12/07/17",
@@ -113,20 +121,20 @@ const testStore = {
   },
   accessories: {
     1: {
-      1: { id: 1, name: "1", finished: true, changing: false },
-      2: { id: 2, name: "2", finished: false, changing: false }
+      1: { id: 1, name: "1", cost: "1000$", finished: true, changing: false },
+      2: { id: 2, name: "2", cost: "1000$", finished: false, changing: false }
     },
     2: {
-      3: { id: 3, name: "3", finished: false, changing: false },
-      4: { id: 4, name: "4", finished: true, changing: false }
+      3: { id: 3, name: "3", cost: "1000$", finished: false, changing: false },
+      4: { id: 4, name: "4", cost: "1000$", finished: true, changing: false }
     },
     3: {
-      1: { id: 1, name: "1", finished: true, changing: false },
-      2: { id: 2, name: "2", finished: false, changing: false }
+      1: { id: 1, name: "1", cost: "1000$", finished: true, changing: false },
+      2: { id: 2, name: "2", cost: "1000$", finished: false, changing: false }
     },
     4: {
-      3: { id: 3, name: "3", finished: false, changing: false },
-      4: { id: 4, name: "4", finished: true, changing: false }
+      3: { id: 3, name: "3", cost: "1000$", finished: false, changing: false },
+      4: { id: 4, name: "4", cost: "1000$", finished: true, changing: false }
     }
   }
 };

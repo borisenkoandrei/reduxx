@@ -3,42 +3,9 @@ import { connect } from "react-redux";
 
 import Task from "../Table/Task";
 
+import { toggleCompliteTask } from "../../actions/taskAction";
+
 function Table(props) {
-  function getTasks(tasks, filter) {
-    const activeTasks = tasks.activeTasks ? tasks.activeTasks : [];
-    const deleateTasks = tasks.deletedTasks ? tasks.deletedTasks : [];
-
-    let result = [];
-    switch (filter) {
-      case "ALL":
-        return Object.keys(activeTasks).map(taskId => {
-          return activeTasks[taskId];
-        });
-      case "IN_WORK":
-        Object.keys(activeTasks).forEach(taskId => {
-          if (!activeTasks[taskId].complited) {
-            result.push(activeTasks[taskId]);
-          }
-        });
-        return result;
-      case "FINISHED":
-        Object.keys(activeTasks).forEach(taskId => {
-          if (activeTasks[taskId].complited) {
-            result.push(activeTasks[taskId]);
-          }
-        });
-        return result;
-      case "DELETE":
-        return Object.keys(deleateTasks).map(taskId => {
-          return deleateTasks[taskId];
-        });
-      default:
-        return tasks;
-    }
-  }
-
-  const Tasks = getTasks(props.tasks, props.filter);
-
   return (
     <div className="tasks-block">
       <table className="tasks-block_table">
@@ -49,24 +16,74 @@ function Table(props) {
             <td>Комплектующие</td>
             <td>Запланированная дата</td>
             <td>Дата последней работы</td>
+            <td>Действие</td>
           </tr>
         </thead>
-        <tbody>{Tasks.map(task => <Task key={task.id} task={task} />)}</tbody>
+        <tbody>
+          {props.tasks.map(task => (
+            <Task
+              key={task.id}
+              task={task}
+              activeCar={props.activeCar}
+              toggleCompliteTask={props.toggleCompliteTask}
+            />
+          ))}
+        </tbody>
       </table>
     </div>
   );
 }
 
+function getTasks(tasks, filter) {
+  const activeTasks = tasks.activeTasks ? tasks.activeTasks : [];
+  const deleateTasks = tasks.deletedTasks ? tasks.deletedTasks : [];
+
+  let result = [];
+  switch (filter) {
+    case "ALL":
+      return Object.keys(activeTasks).map(taskId => {
+        return activeTasks[taskId];
+      });
+    case "IN_WORK":
+      Object.keys(activeTasks).forEach(taskId => {
+        if (!activeTasks[taskId].complited) {
+          result.push(activeTasks[taskId]);
+        }
+      });
+      return result;
+    case "FINISHED":
+      Object.keys(activeTasks).forEach(taskId => {
+        if (activeTasks[taskId].complited) {
+          result.push(activeTasks[taskId]);
+        }
+      });
+      return result;
+    case "DELETE":
+      return Object.keys(deleateTasks).map(taskId => {
+        return deleateTasks[taskId];
+      });
+    default:
+      return tasks;
+  }
+}
+
 const mapStateToProps = state => {
   return {
-    tasks: state.tasks[state.settings.activeCarId],
+    tasks: getTasks(
+      state.tasks[state.settings.activeCarId],
+      state.settings.filter
+    ),
     accessories: state.accessories,
-    filter: state.settings.filter
+    filter: state.settings.filter,
+    activeCar: state.settings.activeCarId
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    toggleCompliteTask: (carid, taskId, taskType) =>
+      dispatch(toggleCompliteTask(carid, taskId, taskType))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
