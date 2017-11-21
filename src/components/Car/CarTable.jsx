@@ -1,6 +1,10 @@
 import React from "react";
 
-function Car(props) {
+function CarTable(props) {
+  if (!props.car) {
+    return <div>Пока ничего нет</div>;
+  }
+
   return (
     <div>
       <table>
@@ -35,4 +39,4 @@ function Car(props) {
   );
 }
 
-export default Car;
+export default CarTable;

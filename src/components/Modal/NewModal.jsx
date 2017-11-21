@@ -22,18 +22,16 @@ class NewModal extends React.Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
     this.mountTo.appendChild(this.modalContainer);
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount");
     this.mountTo.removeChild(this.modalContainer);
   }
 
   render() {
     if (!this.props.isOpen) {
-      return false;
+      return null;
     }
     return ReactDOM.createPortal(this.props.children, this.modalContainer);
   }

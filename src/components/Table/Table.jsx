@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 
 import Task from "../Table/Task";
 
-import { toggleCompliteTask } from "../../actions/taskAction";
+import {
+  toggleCompliteTask,
+  moveToDeleted,
+  deleteTask,
+  moveToActive
+} from "../../actions/taskAction";
 
 function Table(props) {
   return (
@@ -26,6 +31,10 @@ function Table(props) {
               task={task}
               activeCar={props.activeCar}
               toggleCompliteTask={props.toggleCompliteTask}
+              filter={props.filter}
+              moveToDeleted={props.moveToDeleted}
+              deleteTask={props.deleteTask}
+              moveToActive={props.moveToActive}
             />
           ))}
         </tbody>
@@ -34,9 +43,14 @@ function Table(props) {
   );
 }
 
-function getTasks(tasks, filter) {
-  const activeTasks = tasks.activeTasks ? tasks.activeTasks : [];
-  const deleateTasks = tasks.deletedTasks ? tasks.deletedTasks : [];
+function getTasks(tasks, activeCarId, filter) {
+  const activeTasks = tasks.active[activeCarId]
+    ? tasks.active[activeCarId]
+    : {};
+  const deleteTasks = tasks.delete[activeCarId]
+    ? tasks.delete[activeCarId]
+    : {};
+  console.log(deleteTasks);
 
   let result = [];
   switch (filter) {
@@ -59,8 +73,8 @@ function getTasks(tasks, filter) {
       });
       return result;
     case "DELETE":
-      return Object.keys(deleateTasks).map(taskId => {
-        return deleateTasks[taskId];
+      return Object.keys(deleteTasks).map(taskId => {
+        return deleteTasks[taskId];
       });
     default:
       return tasks;
@@ -70,7 +84,8 @@ function getTasks(tasks, filter) {
 const mapStateToProps = state => {
   return {
     tasks: getTasks(
-      state.tasks[state.settings.activeCarId],
+      state.tasks,
+      state.settings.activeCarId,
       state.settings.filter
     ),
     accessories: state.accessories,
@@ -82,7 +97,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     toggleCompliteTask: (carid, taskId, taskType) =>
-      dispatch(toggleCompliteTask(carid, taskId, taskType))
+      dispatch(toggleCompliteTask(carid, taskId, taskType)),
+    moveToDeleted: (carid, taskid) => dispatch(moveToDeleted(carid, taskid)),
+    deleteTask: (carid, taskid) => dispatch(deleteTask(carid, taskid)),
+    moveToActive: (carid, taskid) => dispatch(moveToActive(carid, taskid))
   };
 };
 

@@ -26,8 +26,8 @@ const testStore = {
     add: false
   },
   tasks: {
-    123: {
-      activeTasks: {
+    active: {
+      123: {
         1: {
           id: 1,
           complited: false,
@@ -55,7 +55,29 @@ const testStore = {
           pastDate: "12/07/16"
         }
       },
-      deletedTasks: {
+      456: {
+        1: {
+          id: 1,
+          complited: true,
+          deleted: false,
+          workName: "Замена *",
+          cost: "1000$",
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        },
+        2: {
+          id: 2,
+          complited: false,
+          deleted: false,
+          workName: "Замена *",
+          cost: "1000$",
+          currentDate: "12/07/17",
+          pastDate: "12/07/16"
+        }
+      }
+    },
+    delete: {
+      123: {
         3: {
           id: 3,
           complited: false,
@@ -74,30 +96,8 @@ const testStore = {
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         }
-      }
-    },
-    456: {
-      activeTasks: {
-        1: {
-          id: 1,
-          complited: true,
-          deleted: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        },
-        2: {
-          id: 2,
-          complited: false,
-          deleted: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        }
       },
-      deletedTasks: {
+      456: {
         3: {
           id: 3,
           complited: false,

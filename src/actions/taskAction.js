@@ -1,4 +1,10 @@
-import { ADD_TASK, TOGGLE_COMPLITE_TASK } from "../const/const";
+import {
+  ADD_TASK,
+  TOGGLE_COMPLITE_TASK,
+  MOVE_TO_DELETED,
+  DELETE_TASK,
+  MOVE_TO_ACTIVE
+} from "../const/const";
 
 export function addTask(taskObj) {
   return {
@@ -8,11 +14,34 @@ export function addTask(taskObj) {
   };
 }
 
-export function toggleCompliteTask(activeCarId, taskId, taskType) {
+export function toggleCompliteTask(activeCarId, taskId) {
   return {
     type: TOGGLE_COMPLITE_TASK,
     activeCarId,
-    taskId,
-    taskType
+    taskId
+  };
+}
+
+export function moveToDeleted(activeCarId, taskId) {
+  return {
+    type: MOVE_TO_DELETED,
+    activeCarId,
+    taskId
+  };
+}
+
+export function deleteTask(activeCarId, taskId) {
+  return {
+    type: DELETE_TASK,
+    activeCarId,
+    taskId
+  };
+}
+
+export function moveToActive(activeCarId, taskId) {
+  return {
+    type: MOVE_TO_ACTIVE,
+    activeCarId,
+    taskId
   };
 }

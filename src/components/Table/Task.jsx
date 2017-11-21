@@ -6,10 +6,21 @@ function Task(props) {
   const task = props.task;
   const id = task.id;
   const activeCar = props.activeCar;
-  const taskType = props.task.deleted ? "deletedTasks" : "activeTasks";
 
   function compliteHandler(event) {
-    props.toggleCompliteTask(activeCar, id, taskType);
+    props.toggleCompliteTask(activeCar, id);
+  }
+
+  function moveToDeletedHandler(event) {
+    props.moveToDeleted(activeCar, id);
+  }
+
+  function deleteTaskHandler(event) {
+    props.deleteTask(activeCar, id);
+  }
+
+  function moveToActiveHandler(event) {
+    props.moveToActive(activeCar, id);
   }
 
   function compliteButtonText(task) {
@@ -30,8 +41,26 @@ function Task(props) {
       <td>{task.currentDate}</td>
       <td>{task.pastDate}</td>
       <td>
-        <Button onClick={compliteHandler}>{compliteButtonText(task)}</Button>
-        <Button type="danger" icon="delete" />
+        {props.filter !== "DELETE" ? (
+          <div>
+            <Button onClick={compliteHandler}>
+              {compliteButtonText(task)}
+            </Button>
+            <Button
+              type="danger"
+              icon="delete"
+              onClick={moveToDeletedHandler}
+            />
+          </div>
+        ) : (
+          <div>
+            <Button disabled onClick={compliteHandler}>
+              {compliteButtonText(task)}
+            </Button>
+            <Button type="danger" icon="delete" onClick={deleteTaskHandler} />
+            <Button icon="reload" onClick={moveToActiveHandler} />
+          </div>
+        )}
       </td>
     </tr>
   );
