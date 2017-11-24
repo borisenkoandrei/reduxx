@@ -1,14 +1,33 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 body {
   position: relative;
 }
 
-#modal {
+/* #modal {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+} */
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-new-car {
+  width: 750px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
 }
 
 .appWrapper {

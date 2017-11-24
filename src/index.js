@@ -4,9 +4,14 @@ import { Provider } from "react-redux";
 import App from "./App";
 import store from "./store/store";
 
+import { LocaleProvider } from "antd";
+import ruRU from "antd/lib/locale-provider/ru_RU";
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <LocaleProvider locale={ruRU}>
+      <App />
+    </LocaleProvider>
   </Provider>,
   document.getElementById("root")
 );

@@ -65,30 +65,32 @@ class Accessory extends React.Component {
 
     return (
       <Modal isOpen={this.state.changing} mountTo="#modal">
-        <li>
-          <form action="submit" onSubmit={this.saveChange}>
-            <label htmlFor="name">
-              Наименование:<Input
-                defaultValue={this.props.accessory.name}
-                name="name"
-                id="name"
-              />
-            </label>
-            <label htmlFor="cost">
-              Цена:<Input
-                defaultValue={this.props.accessory.cost}
-                name="cost"
-                id="cost"
-              />
-            </label>
-            <Button htmlType="submit" icon="check">
-              Ok
-            </Button>
-            <Button icon="close" onClick={this.handleChange}>
-              Cancel
-            </Button>
-          </form>
-        </li>
+        <div className="modal">
+          <li>
+            <form action="submit" onSubmit={this.saveChange}>
+              <label htmlFor="name">
+                Наименование:<Input
+                  defaultValue={this.props.accessory.name}
+                  name="name"
+                  id="name"
+                />
+              </label>
+              <label htmlFor="cost">
+                Цена:<Input
+                  defaultValue={this.props.accessory.cost}
+                  name="cost"
+                  id="cost"
+                />
+              </label>
+              <Button htmlType="submit" icon="check">
+                Ok
+              </Button>
+              <Button icon="close" onClick={this.handleChange}>
+                Cancel
+              </Button>
+            </form>
+          </li>
+        </div>
       </Modal>
     );
   }

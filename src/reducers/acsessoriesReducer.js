@@ -20,7 +20,6 @@ export default function accessoriesReducer(state = {}, action) {
         action.taskId
       ][action.accessoryId].finished;
       return newObject2;
-
     default:
       return state;
   }

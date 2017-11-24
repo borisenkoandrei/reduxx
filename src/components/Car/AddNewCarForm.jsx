@@ -28,28 +28,32 @@ function addNewCarForm(props) {
   }
 
   return (
-    <form action="submit" onSubmit={submitHandler}>
-      <label htmlFor="brand">
-        Марка:<input id="brand" type="text" />
-      </label>
-      <label htmlFor="model">
-        Модель:<input id="model" type="text" />
-      </label>
-      <label htmlFor="year">
-        Год выпуска:<input id="year" type="text" />
-      </label>
-      <label htmlFor="engine">
-        Объем двигателя:<input id="engine" type="text" />
-      </label>
-      <label htmlFor="hp">
-        Л.С:<input id="hp" type="text" />
-      </label>
-      <label htmlFor="vin">
-        VIN: <input id="vin" type="text" />
-      </label>
-      <Button htmlType="submit">OK</Button>
-      <Button onClick={cancelHandler}>Cancel</Button>
-    </form>
+    <div className="modal">
+      <div className="add-new-car">
+        <form action="submit" onSubmit={submitHandler}>
+          <label htmlFor="brand">
+            Марка:<input id="brand" type="text" />
+          </label>
+          <label htmlFor="model">
+            Модель:<input id="model" type="text" />
+          </label>
+          <label htmlFor="year">
+            Год выпуска:<input id="year" type="text" />
+          </label>
+          <label htmlFor="engine">
+            Объем двигателя:<input id="engine" type="text" />
+          </label>
+          <label htmlFor="hp">
+            Л.С:<input id="hp" type="text" />
+          </label>
+          <label htmlFor="vin">
+            VIN: <input id="vin" type="text" />
+          </label>
+          <Button htmlType="submit">OK</Button>
+          <Button onClick={cancelHandler}>Cancel</Button>
+        </form>
+      </div>
+    </div>
   );
 }
 
