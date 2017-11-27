@@ -7,7 +7,14 @@ import {
 export default function accessoriesReducer(state = {}, action) {
   switch (action.type) {
     case ADD_ACCESSORY:
-      return Object.assign({}, state, { [action.id]: action.accessory });
+      const newObject3 = Object.assign({}, state, {
+        [action.taskId]: Object.assign({}, state[action.taskId], {
+          [action.id]: action.accsessory
+        })
+      });
+
+      return newObject3;
+
     case CHANGE_ACCESSORY:
       let newObject = Object.assign({}, state);
       newObject[action.taskId][action.accessoryId].name = action.name;

@@ -3,6 +3,9 @@ import { Input, Button, DatePicker } from "antd";
 import AcccessoriesList from "../AddNewTask/AccessoriesList";
 import { connect } from "react-redux";
 
+import { addAccessory } from "../../actions/accessoriesAction";
+import { addTask } from "../../actions/taskAction";
+
 class addNewTaskWindow extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +24,7 @@ class addNewTaskWindow extends React.Component {
     this.changeDate = this.changeDate.bind(this);
     this.addAccessory = this.addAccessory.bind(this);
     this.deleteAccessory = this.deleteAccessory.bind(this);
+    this.saveTask = this.saveTask.bind(this);
   }
 
   taskNameChange(event) {
@@ -62,11 +66,38 @@ class addNewTaskWindow extends React.Component {
     this.setState({ accessories: accessories });
   }
 
+  saveTask(event) {
+    const taskObj = {
+      id: this.state.taskId,
+      complited: false,
+      deleted: false,
+      workName: this.state.taskName,
+      cost: this.state.taskCost,
+      currentDate: this.state.currentDate,
+      pastDate: ""
+    };
+
+    Object.keys(this.state.accessories).map(key => {
+      this.props.addAccessories(this.state.taskId, this.state.accessories[key]);
+    });
+
+    this.props.addTask(this.props.activeCar, taskObj);
+    this.props.toggleModal();
+  }
+
   render() {
     return (
       <div className="new-task-window">
-        <Input className="task-name" onChange={this.taskNameChange} />
-        <Input className="task-cost" onChange={this.taskCostChange} />
+        <Input
+          placeholder="Название"
+          className="task-name"
+          onChange={this.taskNameChange}
+        />
+        <Input
+          placeholder="Стоимость"
+          className="task-cost"
+          onChange={this.taskCostChange}
+        />
         <DatePicker onChange={this.changeDate} />
         <div className="add-accessories">
           <form onSubmit={this.addAccessory}>
@@ -77,14 +108,22 @@ class addNewTaskWindow extends React.Component {
               />
             </div>
             <div className="add-new-accessory">
-              <Input id="name" className="accessory-name" />
-              <Input id="cost" className="accessory-cost" />
+              <Input
+                placeholder="Название"
+                id="name"
+                className="accessory-name"
+              />
+              <Input
+                placeholder="Стоимость"
+                id="cost"
+                className="accessory-cost"
+              />
               <Button htmlType="submit">Добавить</Button>
             </div>
           </form>
         </div>
         <div className="new-task-window_root-button">
-          <Button>Добавить здачу</Button>
+          <Button onClick={this.saveTask}>Добавить здачу</Button>
           <Button onClick={() => this.props.toggleModal()}>Отмена</Button>
         </div>
       </div>
@@ -98,4 +137,11 @@ const mapStateToProps = store => {
   };
 };
 
-export default connect(mapStateToProps)(addNewTaskWindow);
+const mapDispatchToProps = dispatch => {
+  return {
+    addTask: (carid, task) => dispatch(addTask(carid, task)),
+    addAccessories: (id, acessories) => dispatch(addAccessory(id, acessories))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(addNewTaskWindow);

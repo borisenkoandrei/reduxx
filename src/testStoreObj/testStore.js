@@ -56,8 +56,8 @@ const testStore = {
         }
       },
       456: {
-        1: {
-          id: 1,
+        4: {
+          id: 4,
           complited: true,
           deleted: false,
           workName: "Замена *",
@@ -65,8 +65,8 @@ const testStore = {
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         },
-        2: {
-          id: 2,
+        5: {
+          id: 5,
           complited: false,
           deleted: false,
           workName: "Замена *",
@@ -78,8 +78,8 @@ const testStore = {
     },
     delete: {
       123: {
-        3: {
-          id: 3,
+        6: {
+          id: 6,
           complited: false,
           deleted: true,
           workName: "Замена *",
@@ -87,8 +87,8 @@ const testStore = {
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         },
-        4: {
-          id: 4,
+        7: {
+          id: 7,
           complited: true,
           deleted: true,
           workName: "Замена *",
@@ -98,8 +98,8 @@ const testStore = {
         }
       },
       456: {
-        3: {
-          id: 3,
+        8: {
+          id: 8,
           complited: false,
           deleted: true,
           workName: "Замена *",
@@ -107,8 +107,8 @@ const testStore = {
           currentDate: "12/07/17",
           pastDate: "12/07/16"
         },
-        4: {
-          id: 4,
+        9: {
+          id: 9,
           complited: false,
           deleted: true,
           workName: "Замена *",

@@ -9,7 +9,9 @@ import {
 export default function taskReducer(state = {}, action) {
   switch (action.type) {
     case ADD_TASK:
-      return Object.assign({}, state, { [action.id]: action.task });
+      const newState5 = Object.assign({}, state);
+      newState5.active[action.activeCarId][action.id] = action.task;
+      return newState5;
     case TOGGLE_COMPLITE_TASK:
       const newState = Object.assign({}, state);
       let status = newState.active[action.activeCarId][action.taskId].complited;

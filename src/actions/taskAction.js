@@ -6,9 +6,10 @@ import {
   MOVE_TO_ACTIVE
 } from "../const/const";
 
-export function addTask(taskObj) {
+export function addTask(activecar, taskObj) {
   return {
     type: ADD_TASK,
+    activeCarId: activecar,
     id: taskObj.id,
     task: taskObj
   };

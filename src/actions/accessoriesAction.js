@@ -4,9 +4,10 @@ import {
   TOGGLE_ACCESSORY_STATUS
 } from "../const/const";
 
-export function addAccessory(accessoryObj) {
+export function addAccessory(taskId, accessoryObj) {
   return {
     type: ADD_ACCESSORY,
+    taskId,
     id: accessoryObj.id,
     accsessory: accessoryObj
   };

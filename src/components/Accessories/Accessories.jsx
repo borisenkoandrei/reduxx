@@ -1,33 +1,119 @@
 import React from "react";
 import { connect } from "react-redux";
 import Accessory from "./Accessory";
+import { Button, Input } from "antd";
+import Modal from "../Modal/NewModal";
 
 import {
+  addAccessory,
   changeAccessory,
   toggleAccessoryStatus
 } from "../../actions/accessoriesAction";
 
-function Accessories(props) {
-  const { taskId, accessories, changeAccessory, toggleAccessoryStatus } = props;
-  const currentAccessories = accessories(taskId);
+class Accessories extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalIsOpen: false
+    };
+  }
 
-  return (
-    <ul>
-      {Object.keys(currentAccessories).map(key => {
-        let accessories = currentAccessories[key];
-        return (
-          <Accessory
-            key={key}
-            taskId={props.taskId}
-            accessory={accessories}
-            changeAccessory={changeAccessory}
-            toggleAccessoryStatus={toggleAccessoryStatus}
-          />
-        );
-      })}
-    </ul>
-  );
+  toggleModal = () => {
+    this.setState({ modalIsOpen: !this.state.modalIsOpen });
+  };
+
+  addAccessory = event => {
+    const accessoryObj = {
+      id: Date.now(),
+      name: event.target.name.value,
+      cost: event.target.cost.value,
+      finished: false,
+      changing: false
+    };
+
+    this.props.addAccessory(this.props.taskId, accessoryObj);
+  };
+
+  render() {
+    const currentAccessories = this.props.accessories(this.props.taskId);
+
+    if (!currentAccessories) {
+      return <li>Пусто</li>;
+    }
+
+    return (
+      <div>
+        <ul>
+          {Object.keys(currentAccessories).map(key => {
+            let accessories = currentAccessories[key];
+            return (
+              <Accessory
+                key={key}
+                taskId={this.props.taskId}
+                accessory={accessories}
+                changeAccessory={this.props.changeAccessory}
+                toggleAccessoryStatus={this.props.toggleAccessoryStatus}
+              />
+            );
+          })}
+        </ul>
+        <Button icon="plus" onClick={this.toggleModal} />
+        <Modal isOpen={this.state.modalIsOpen} mountTo="#modal">
+          <div className="modal">
+            <li>
+              <form action="submit" onSubmit={this.props.addAccessory}>
+                <label htmlFor="name">
+                  Наименование:<Input
+                    placeholder="Название"
+                    name="name"
+                    id="name"
+                  />
+                </label>
+                <label htmlFor="cost">
+                  Цена:<Input placeholder="Стоимость" name="cost" id="cost" />
+                </label>
+                <Button htmlType="submit" icon="check">
+                  Ok
+                </Button>
+                <Button icon="close" onClick={this.toggleModal}>
+                  Cancel
+                </Button>
+              </form>
+            </li>
+          </div>
+        </Modal>
+      </div>
+    );
+  }
 }
+// function Accessories(props) {
+//   const { taskId, accessories, changeAccessory, toggleAccessoryStatus } = props;
+//   const currentAccessories = accessories(taskId);
+
+//   if (!currentAccessories) {
+//     return <li>Пусто</li>;
+//   }
+
+//   return (
+//     <div>
+//       <ul>
+//         {Object.keys(currentAccessories).map(key => {
+//           let accessories = currentAccessories[key];
+//           return (
+//             <Accessory
+//               key={key}
+//               taskId={props.taskId}
+//               accessory={accessories}
+//               changeAccessory={changeAccessory}
+//               toggleAccessoryStatus={toggleAccessoryStatus}
+//             />
+//           );
+//         })}
+//       </ul>
+//       <button />
+//     </div>
+//   );
+// }
 
 const mapStateToProps = state => {
   return {
@@ -40,7 +126,9 @@ const mapDispatchToProps = dispatch => {
     changeAccessory: (taskId, accessoriesId, name, cost) =>
       dispatch(changeAccessory(taskId, accessoriesId, name, cost)),
     toggleAccessoryStatus: (taskId, accessoriesId) =>
-      dispatch(toggleAccessoryStatus(taskId, accessoriesId))
+      dispatch(toggleAccessoryStatus(taskId, accessoriesId)),
+    addAccessory: (taskId, accessoryObj) =>
+      dispatch(addAccessory(taskId, accessoryObj))
   };
 };
 
