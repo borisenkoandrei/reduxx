@@ -1,7 +1,8 @@
 import {
   ADD_ACCESSORY,
   CHANGE_ACCESSORY,
-  TOGGLE_ACCESSORY_STATUS
+  TOGGLE_ACCESSORY_STATUS,
+  DELETE_ACCESSORY
 } from "../const/const";
 
 export function addAccessory(taskId, accessoryObj) {
@@ -10,6 +11,14 @@ export function addAccessory(taskId, accessoryObj) {
     taskId,
     id: accessoryObj.id,
     accsessory: accessoryObj
+  };
+}
+
+export function deleteAccessory(taskId, accessoryId) {
+  return {
+    type: DELETE_ACCESSORY,
+    taskId,
+    accessoryId
   };
 }
 

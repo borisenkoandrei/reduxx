@@ -1,7 +1,8 @@
 import {
   ADD_ACCESSORY,
   CHANGE_ACCESSORY,
-  TOGGLE_ACCESSORY_STATUS
+  TOGGLE_ACCESSORY_STATUS,
+  DELETE_ACCESSORY
 } from "../const/const";
 
 export default function accessoriesReducer(state = {}, action) {
@@ -14,6 +15,14 @@ export default function accessoriesReducer(state = {}, action) {
       });
 
       return newObject3;
+    case DELETE_ACCESSORY:
+      const newObject4 = Object.assign({}, state);
+      const accessory = Object.assign({}, newObject4[action.taskId]);
+      delete accessory[action.accessoryId];
+      const resultObject = Object.assign({}, newObject4, {
+        [action.taskId]: accessory
+      });
+      return resultObject;
 
     case CHANGE_ACCESSORY:
       let newObject = Object.assign({}, state);

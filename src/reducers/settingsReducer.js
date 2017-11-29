@@ -1,5 +1,9 @@
 import { CHANGE_ACTIVE_CAR, CHANGE_FILTER } from "../const/const";
 
+const initiallStae = {
+  filter: "ALL"
+};
+
 export default function changeActiveCar(state = {}, action) {
   switch (action.type) {
     case CHANGE_ACTIVE_CAR:

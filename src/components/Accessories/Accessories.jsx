@@ -6,6 +6,7 @@ import Modal from "../Modal/NewModal";
 
 import {
   addAccessory,
+  deleteAccessory,
   changeAccessory,
   toggleAccessoryStatus
 } from "../../actions/accessoriesAction";
@@ -23,6 +24,7 @@ class Accessories extends React.Component {
   };
 
   addAccessory = event => {
+    event.preventDefault();
     const accessoryObj = {
       id: Date.now(),
       name: event.target.name.value,
@@ -32,6 +34,7 @@ class Accessories extends React.Component {
     };
 
     this.props.addAccessory(this.props.taskId, accessoryObj);
+    this.toggleModal();
   };
 
   render() {
@@ -52,6 +55,7 @@ class Accessories extends React.Component {
                 taskId={this.props.taskId}
                 accessory={accessories}
                 changeAccessory={this.props.changeAccessory}
+                deleteAccessory={this.props.deleteAccessory}
                 toggleAccessoryStatus={this.props.toggleAccessoryStatus}
               />
             );
@@ -61,7 +65,7 @@ class Accessories extends React.Component {
         <Modal isOpen={this.state.modalIsOpen} mountTo="#modal">
           <div className="modal">
             <li>
-              <form action="submit" onSubmit={this.props.addAccessory}>
+              <form action="submit" onSubmit={this.addAccessory}>
                 <label htmlFor="name">
                   Наименование:<Input
                     placeholder="Название"
@@ -128,7 +132,10 @@ const mapDispatchToProps = dispatch => {
     toggleAccessoryStatus: (taskId, accessoriesId) =>
       dispatch(toggleAccessoryStatus(taskId, accessoriesId)),
     addAccessory: (taskId, accessoryObj) =>
-      dispatch(addAccessory(taskId, accessoryObj))
+      dispatch(addAccessory(taskId, accessoryObj)),
+    deleteAccessory: (taskId, accessoryId) => {
+      dispatch(deleteAccessory(taskId, accessoryId));
+    }
   };
 };
 

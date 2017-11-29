@@ -19,7 +19,8 @@ export function toggleCompliteTask(activeCarId, taskId) {
   return {
     type: TOGGLE_COMPLITE_TASK,
     activeCarId,
-    taskId
+    taskId,
+    compliteDate: new Date().toLocaleDateString("en-GB")
   };
 }
 

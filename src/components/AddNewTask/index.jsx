@@ -36,7 +36,7 @@ class addNewTaskWindow extends React.Component {
   }
 
   changeDate(date, dateString) {
-    this.setState({ currentDate: dateString });
+    this.setState({ currentDate: date.format("DD/MM/YYYY") });
   }
 
   addAccessory(event) {
@@ -76,12 +76,12 @@ class addNewTaskWindow extends React.Component {
       currentDate: this.state.currentDate,
       pastDate: ""
     };
+    this.props.addTask(this.props.activeCar, taskObj);
 
     Object.keys(this.state.accessories).map(key => {
       this.props.addAccessories(this.state.taskId, this.state.accessories[key]);
     });
 
-    this.props.addTask(this.props.activeCar, taskObj);
     this.props.toggleModal();
   }
 

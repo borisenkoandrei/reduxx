@@ -6,33 +6,47 @@ import {
   MOVE_TO_ACTIVE
 } from "../const/const";
 
-export default function taskReducer(state = {}, action) {
+const initialState = {
+  active: {},
+  delete: {}
+};
+
+export default function taskReducer(state = initialState, action) {
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case ADD_TASK:
-      const newState5 = Object.assign({}, state);
-      newState5.active[action.activeCarId][action.id] = action.task;
-      return newState5;
+      return Object.assign({}, state, {
+        active: Object.assign({}, state.active, {
+          [action.activeCarId]: Object.assign(
+            {},
+            state.active[action.activeCarId],
+            { [action.id]: action.task }
+          )
+        }),
+        delete: Object.assign({}, state.delete, {
+          [action.activeCarId]: {}
+        })
+      });
+
     case TOGGLE_COMPLITE_TASK:
-      const newState = Object.assign({}, state);
       let status = newState.active[action.activeCarId][action.taskId].complited;
       newState.active[action.activeCarId][action.taskId].complited = !status;
+      newState.active[action.activeCarId][action.taskId].pastDate =
+        action.compliteDate;
       return newState;
     case MOVE_TO_DELETED:
-      let newState2 = Object.assign({}, state);
-      const task = newState2.active[action.activeCarId][action.taskId];
-      delete newState2.active[action.activeCarId][action.taskId];
-      newState2.delete[action.activeCarId][action.taskId] = task;
-      return newState2;
+      const task = newState.active[action.activeCarId][action.taskId];
+      delete newState.active[action.activeCarId][action.taskId];
+      newState.delete[action.activeCarId][action.taskId] = task;
+      return newState;
     case DELETE_TASK:
-      let newState3 = Object.assign({}, state);
-      delete newState3.delete[action.activeCarId][action.taskId];
-      return newState3;
+      delete newState.delete[action.activeCarId][action.taskId];
+      return newState;
     case MOVE_TO_ACTIVE:
-      let newState4 = Object.assign({}, state);
-      let task2 = newState4.delete[action.activeCarId][action.taskId];
-      delete newState4.delete[action.activeCarId][action.taskId];
-      newState4.active[action.activeCarId][action.taskId] = task2;
-      return newState4;
+      let task2 = newState.delete[action.activeCarId][action.taskId];
+      delete newState.delete[action.activeCarId][action.taskId];
+      newState.active[action.activeCarId][action.taskId] = task2;
+      return newState;
 
     default:
       return state;

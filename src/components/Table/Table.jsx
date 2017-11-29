@@ -25,18 +25,22 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {props.tasks.map(task => (
-            <Task
-              key={task.id}
-              task={task}
-              activeCar={props.activeCar}
-              toggleCompliteTask={props.toggleCompliteTask}
-              filter={props.filter}
-              moveToDeleted={props.moveToDeleted}
-              deleteTask={props.deleteTask}
-              moveToActive={props.moveToActive}
-            />
-          ))}
+          {Object.keys(props.tasks).length == 0 ? (
+            props.tasks.map(task => (
+              <Task
+                key={task.id}
+                task={task}
+                activeCar={props.activeCar}
+                toggleCompliteTask={props.toggleCompliteTask}
+                filter={props.filter}
+                moveToDeleted={props.moveToDeleted}
+                deleteTask={props.deleteTask}
+                moveToActive={props.moveToActive}
+              />
+            ))
+          ) : (
+            <tr>Пока ничего нет</tr>
+          )}
         </tbody>
       </table>
     </div>

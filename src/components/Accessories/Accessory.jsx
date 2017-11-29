@@ -48,6 +48,10 @@ class Accessory extends React.Component {
     this.toggleAccessoryStatus(this.props.taskId, this.props.accessory.id);
   }
 
+  deleteAccessory = event => {
+    this.props.deleteAccessory(this.taskId, this.id);
+  };
+
   render() {
     if (!this.state.changing) {
       return (
@@ -88,6 +92,11 @@ class Accessory extends React.Component {
               <Button icon="close" onClick={this.handleChange}>
                 Cancel
               </Button>
+              <Button
+                type="danger"
+                icon="delete"
+                onClick={this.deleteAccessory}
+              />
             </form>
           </li>
         </div>
