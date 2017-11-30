@@ -26,96 +26,89 @@ const testStore = {
     add: false
   },
   tasks: {
-    active: {
-      123: {
-        1: {
-          id: 1,
-          complited: false,
-          deleted: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        },
-        2: {
-          id: 2,
-          complited: false,
-          deleted: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        },
-        3: {
-          id: 3,
-          complited: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        }
+    123: {
+      1: {
+        id: 1,
+        complited: false,
+        deleted: false,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
       },
-      456: {
-        4: {
-          id: 4,
-          complited: true,
-          deleted: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        },
-        5: {
-          id: 5,
-          complited: false,
-          deleted: false,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        }
+      2: {
+        id: 2,
+        complited: false,
+        deleted: false,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
+      },
+      3: {
+        id: 3,
+        complited: false,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
+      },
+
+      4: {
+        id: 4,
+        complited: false,
+        deleted: true,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
+      },
+      5: {
+        id: 5,
+        complited: true,
+        deleted: true,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: "12/07/16"
       }
     },
-    delete: {
-      123: {
-        6: {
-          id: 6,
-          complited: false,
-          deleted: true,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        },
-        7: {
-          id: 7,
-          complited: true,
-          deleted: true,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        }
+    456: {
+      6: {
+        id: 6,
+        complited: true,
+        deleted: false,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: "12/07/16"
       },
-      456: {
-        8: {
-          id: 8,
-          complited: false,
-          deleted: true,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        },
-        9: {
-          id: 9,
-          complited: false,
-          deleted: true,
-          workName: "Замена *",
-          cost: "1000$",
-          currentDate: "12/07/17",
-          pastDate: "12/07/16"
-        }
+      7: {
+        id: 7,
+        complited: false,
+        deleted: false,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
+      },
+      8: {
+        id: 8,
+        complited: false,
+        deleted: true,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
+      },
+      9: {
+        id: 9,
+        complited: false,
+        deleted: true,
+        workName: "Замена *",
+        cost: "1000$",
+        currentDate: "12/07/17",
+        pastDate: ""
       }
     }
   },

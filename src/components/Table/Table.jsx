@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import Task from "../Table/Task";
 
+import * as FILTER from "../../const/filter";
+
 import {
   toggleCompliteTask,
   moveToDeleted,
@@ -25,7 +27,7 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(props.tasks).length == 0 ? (
+          {Object.keys(props.tasks).length !== 0 ? (
             props.tasks.map(task => (
               <Task
                 key={task.id}
@@ -39,7 +41,9 @@ function Table(props) {
               />
             ))
           ) : (
-            <tr>Пока ничего нет</tr>
+            <tr>
+              <td>Пока ничего нет</td>
+            </tr>
           )}
         </tbody>
       </table>
@@ -47,49 +51,47 @@ function Table(props) {
   );
 }
 
-function getTasks(tasks, activeCarId, filter) {
-  const activeTasks = tasks.active[activeCarId]
-    ? tasks.active[activeCarId]
-    : {};
-  const deleteTasks = tasks.delete[activeCarId]
-    ? tasks.delete[activeCarId]
-    : {};
-  console.log(deleteTasks);
-
+function getTasks(tasks, filter) {
+  const keyArray = Object.keys(tasks);
   let result = [];
   switch (filter) {
-    case "ALL":
-      return Object.keys(activeTasks).map(taskId => {
-        return activeTasks[taskId];
-      });
-    case "IN_WORK":
-      Object.keys(activeTasks).forEach(taskId => {
-        if (!activeTasks[taskId].complited) {
-          result.push(activeTasks[taskId]);
+    case FILTER.ALL:
+      Object.keys(tasks).forEach(key => {
+        if (tasks[key].deleted === false) {
+          result.push(tasks[key]);
         }
       });
-      return result;
-    case "FINISHED":
-      Object.keys(activeTasks).forEach(taskId => {
-        if (activeTasks[taskId].complited) {
-          result.push(activeTasks[taskId]);
+      break;
+    case FILTER.DELETE:
+      Object.keys(tasks).forEach(key => {
+        if (tasks[key].deleted === true) {
+          result.push(tasks[key]);
         }
       });
-      return result;
-    case "DELETE":
-      return Object.keys(deleteTasks).map(taskId => {
-        return deleteTasks[taskId];
+      break;
+    case FILTER.FINISHED:
+      Object.keys(tasks).forEach(key => {
+        if (tasks[key].complited === true && tasks[key].deleted === false) {
+          result.push(tasks[key]);
+        }
+      });
+      break;
+    case FILTER.IN_WORK:
+      Object.keys(tasks).forEach(key => {
+        if (tasks[key].complited === false && tasks[key].deleted === false) {
+          result.push(tasks[key]);
+        }
       });
     default:
-      return tasks;
+      return Object.keys(tasks).map(key => tasks[key]);
   }
+  return result;
 }
 
 const mapStateToProps = state => {
   return {
     tasks: getTasks(
-      state.tasks,
-      state.settings.activeCarId,
+      state.tasks[state.settings.activeCarId],
       state.settings.filter
     ),
     accessories: state.accessories,
