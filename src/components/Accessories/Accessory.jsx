@@ -55,14 +55,18 @@ class Accessory extends React.Component {
   render() {
     if (!this.state.changing) {
       return (
-        <li>
+        <li className="table-accessory">
           <Checkbox
             checked={this.props.accessory.finished}
             onChange={this.toggleStatus}
           />
           <div>{this.props.accessory.name}</div>
           <div>{this.props.accessory.cost}</div>
-          <Button icon="edit" onClick={this.handleChange} />
+          <Button
+            className="table-accessory_edit"
+            icon="edit"
+            onClick={this.handleChange}
+          />
         </li>
       );
     }

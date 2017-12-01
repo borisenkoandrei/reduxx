@@ -40,26 +40,28 @@ class rootCar extends React.Component {
     return (
       <div>
         <CarTable car={this.props.car} />
-        <ChangeCar
-          cars={this.props.cars}
-          changeCar={this.props.changeActiveCar}
-          activeCar={this.props.activeCar}
-        />
-        {Object.keys(this.props.cars).length !== 0 ? (
-          <Button
-            className="delete"
-            icon="delete"
-            type="danger"
-            onClick={this.deleteCarHandler}
+        <div className="car-settings">
+          <ChangeCar
+            cars={this.props.cars}
+            changeCar={this.props.changeActiveCar}
+            activeCar={this.props.activeCar}
           />
-        ) : null}
-        <Button icon="plus" onClick={this.modalHandler} />
-        <Modal isOpen={this.state.modalIsOpen} mountTo="#modal">
-          <AddNewCarForm
-            modalHandler={this.modalHandler}
-            addNewCar={this.addNewCar}
-          />
-        </Modal>
+          {Object.keys(this.props.cars).length !== 0 ? (
+            <Button
+              className="delete"
+              icon="delete"
+              type="danger"
+              onClick={this.deleteCarHandler}
+            />
+          ) : null}
+          <Button icon="plus" onClick={this.modalHandler} />
+          <Modal isOpen={this.state.modalIsOpen} mountTo="#modal">
+            <AddNewCarForm
+              modalHandler={this.modalHandler}
+              addNewCar={this.addNewCar}
+            />
+          </Modal>
+        </div>
       </div>
     );
   }

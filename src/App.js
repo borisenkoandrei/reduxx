@@ -7,27 +7,46 @@ import Table from "./components/Table/Table";
 import Car from "./containers/car";
 import NewTask from "./containers/AddTask";
 
+import { Layout } from "antd";
 import { Button } from "antd";
+
 import { changeActiveCar } from "./actions/settingsAction";
 import { deleteCar } from "./actions/carAction";
 
 import "./style/style.css";
 
+const { Header, Footer, Sider, Content } = Layout;
+
 function App(props) {
   return (
-    <div className="app-wrapper">
-      <div className="car">
+    <Layout style={{ height: "100vh" }}>
+      <Sider style={{ backgroundColor: "#108ee9" }}>
         <Car />
-      </div>
-      <div className="main-section">
-        <Filter />
-        <Table />
-      </div>
-      <div className="add-new-task">
-        <NewTask />
-      </div>
-      <div id="Modal" />
-    </div>
+      </Sider>
+      <Layout>
+        <Content>
+          <Filter />
+          <Table />
+        </Content>
+        <Footer>
+          Foote<NewTask />
+        </Footer>
+      </Layout>
+    </Layout>
+
+    // <div className="app-wrapper">
+    //   <div className="car">
+    //     <Car />
+    //   </div>
+    //   <div className="main-section">
+    //     <Filter />
+    //     <Table />
+    //   </div>
+    //   <div className="add-new-task">
+    //     <NewTask />
+    //   </div>
+    //   <div id="Modal" />
+    // </div>
   );
 }
 

@@ -46,7 +46,7 @@ class Accessories extends React.Component {
 
     return (
       <div>
-        <ul>
+        <ul className="table-accessories">
           {Object.keys(currentAccessories).map(key => {
             let accessories = currentAccessories[key];
             return (

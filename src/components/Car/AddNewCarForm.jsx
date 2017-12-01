@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, Input } from "antd";
+import "../../style/AddNevCarS.css";
 
 function addNewCarForm(props) {
   function cancelhandler(event) {
@@ -31,26 +32,44 @@ function addNewCarForm(props) {
     <div className="modal">
       <div className="add-new-car">
         <form action="submit" onSubmit={submitHandler}>
-          <label htmlFor="brand">
-            Марка:<input id="brand" type="text" />
+          <label className="add-new-car_label" htmlFor="brand">
+            Марка:<Input className="add-new-car_input" id="brand" type="text" />
           </label>
-          <label htmlFor="model">
-            Модель:<input id="model" type="text" />
+          <label className="add-new-car_label" htmlFor="model">
+            Модель:<Input
+              className="add-new-car_input"
+              id="model"
+              type="text"
+            />
           </label>
-          <label htmlFor="year">
-            Год выпуска:<input id="year" type="text" />
+          <label className="add-new-car_label" htmlFor="year">
+            Год выпуска:<Input
+              className="add-new-car_input"
+              id="year"
+              type="text"
+            />
           </label>
-          <label htmlFor="engine">
-            Объем двигателя:<input id="engine" type="text" />
+          <label className="add-new-car_label" htmlFor="engine">
+            Объем двигателя:<Input
+              className="add-new-car_input"
+              id="engine"
+              type="text"
+            />
           </label>
-          <label htmlFor="hp">
-            Л.С:<input id="hp" type="text" />
+          <label className="add-new-car_label" htmlFor="hp">
+            Л.С:<Input className="add-new-car_input" id="hp" type="text" />
           </label>
-          <label htmlFor="vin">
-            VIN: <input id="vin" type="text" />
+          <label className="add-new-car_label" htmlFor="vin">
+            VIN: <Input className="add-new-car_input" id="vin" type="text" />
           </label>
-          <Button htmlType="submit">OK</Button>
-          <Button onClick={cancelHandler}>Cancel</Button>
+          <div className="add-new-car_buttons">
+            <Button className="add-new-car_button" htmlType="submit">
+              OK
+            </Button>
+            <Button className="add-new-car_button" onClick={cancelHandler}>
+              Cancel
+            </Button>
+          </div>
         </form>
       </div>
     </div>

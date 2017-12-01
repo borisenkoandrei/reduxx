@@ -32,7 +32,7 @@ function Task(props) {
   }
 
   return (
-    <tr className="test">
+    <tr>
       <td>{task.workName}</td>
       <td>{task.cost}</td>
       <td>

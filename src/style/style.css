@@ -23,13 +23,6 @@ body {
   justify-content: center;
 }
 
-.add-new-car {
-  width: 750px;
-  background-color: white;
-  padding: 15px;
-  border-radius: 6px;
-}
-
 .appWrapper {
   display: flex;
 }
@@ -145,3 +138,26 @@ body {
 .acsessories-item_button.active {
   opacity: 1;
 }
+
+/*CAR */
+
+.car-settings {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* TABLE_ACCESSORIES */
+
+.table-accessories {
+}
+
+.table-accessory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table-accessory_edit {
+  display: none;
+}
+

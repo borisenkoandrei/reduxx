@@ -1,12 +1,27 @@
-.add-new-car{
-    width: 300px;
-    padding: 5px;
-    border: 1px solid;
-    box-sizing: border-box;
+.add-new-car {
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
 }
 
-.add-new-car_label{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.add-new-car_label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.add-new-car_input {
+  margin-left: 20px;
+  width: 150px;
+}
+
+.add-new-car_buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-new-car_button {
+  margin-left: 20px;
 }
