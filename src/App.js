@@ -29,7 +29,7 @@ function App(props) {
           <Table />
         </Content>
         <Footer>
-          Foote<NewTask />
+          <NewTask />
         </Footer>
       </Layout>
     </Layout>

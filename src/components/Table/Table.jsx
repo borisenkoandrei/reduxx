@@ -52,7 +52,9 @@ function Table(props) {
 }
 
 function getTasks(tasks, filter) {
-  const keyArray = Object.keys(tasks);
+  if (tasks === undefined) {
+    return {};
+  }
   let result = [];
   switch (filter) {
     case FILTER.ALL:
@@ -82,6 +84,7 @@ function getTasks(tasks, filter) {
           result.push(tasks[key]);
         }
       });
+      break;
     default:
       return Object.keys(tasks).map(key => tasks[key]);
   }

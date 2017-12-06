@@ -53,6 +53,8 @@ body {
 
 .tasks-block_table {
   width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .deleate-task {
@@ -66,6 +68,11 @@ body {
 
 .finished {
   text-decoration: line-through;
+}
+
+.new-task {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .new-task-modal {
@@ -142,14 +149,12 @@ body {
 /*CAR */
 
 .car-settings {
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 /* TABLE_ACCESSORIES */
-
-.table-accessories {
-}
 
 .table-accessory {
   display: flex;
@@ -157,7 +162,21 @@ body {
   justify-content: space-between;
 }
 
-.table-accessory_edit {
-  display: none;
+.add-new-car_input {
+  margin-left: 20px;
+  width: 150px;
 }
 
+/* FILTER */
+
+.filter {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 1px grey;
+}
+
+.filter > button {
+  margin-left: 10px;
+}
